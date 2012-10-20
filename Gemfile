@@ -39,3 +39,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug'
 
 gem "haml"
+
+# Include to fix /usr/local/rvm/gems/ruby-1.8.7-p371/gems/execjs-1.4.0/lib/execjs/runtimes.rb:51:in `autodetect': Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
+gem 'execjs'
+gem 'therubyracer'
