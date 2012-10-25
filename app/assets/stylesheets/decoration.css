@@ -1,0 +1,149 @@
+/* This file stores visual info about colors, fonts and other decorations */
+
+/* Font-size: 16px * 0.75 = 12px
+ * 1px = 1/12 = 0.083em
+ */
+a, a:link, a:hover, a:visited, a:active { color: #000; }
+.main h2 {
+    color: #da0019;
+    font-style: italic;
+}
+.main a { color: #da0019; }
+.main a:link { color: #da0019; }
+.main a:visited { color: #a50019; }
+.main a:hover { color: #da0019; }
+.main a:active { color: #fc0019; }
+
+.highlight { background-color: transparent; }
+.header .nav {
+    border-bottom: 2px solid black;
+    line-height: 1.5;
+}
+.home .header .nav { padding-top: 4em; }
+.header .nav li {
+    background: url("../img/slash.png") no-repeat -5px 0;
+    font-size: 120%;
+    margin-left: 1%;
+    text-transform: uppercase;
+}
+.header .nav li:first-child { background: none; }
+.header .nav a {
+    color: Black;
+    margin-left: 1em;
+    text-decoration: none;
+}
+.header .nav a:after { content: " ///"; }
+.header .nav a:hover { color: #da0019; }
+.header .nav .selected a { color: #da0019; }
+.area { 
+    border-bottom: 5px solid #bec0c2;
+	color: white; 
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    padding-bottom: 3px;
+    text-indent: 0.5em;
+    text-transform: uppercase;
+}
+.aside .area { border-color: black; }
+.highlight.area  { border-color: #da0019; }
+
+.aside .headline { 
+    border-bottom: 1px solid black;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+.aside .placeholder {
+    background-color: Silver;
+    padding-bottom: 0.5em;
+    padding-top: 5.5em;
+}
+.aside h4 {
+    border-bottom: 3px solid Black;
+    margin: 0 0.5em;
+}
+.headline a { text-decoration: none; }
+.headline p { 
+    font-size: 90%; 
+    margin-bottom: 0;
+}
+.jmc .placeholder { background: transparent url(../img/jmc-h.jpg) no-repeat; }
+.mrf .placeholder { background: transparent url(../img/miscela-h.jpg) no-repeat; }
+.pd .placeholder { background: transparent url(../img/pd-h.jpg) no-repeat; }
+.asf .placeholder { background: transparent url(../img/asf-h.jpg) no-repeat; }
+.crew .placeholder { background: transparent url(../img/crew-h.jpg) no-repeat; }
+.jmc .placeholder h4 { visibility: hidden; }
+.mrf .placeholder h4, .pd .placeholder h4,
+.asf .placeholder h4, .crew .placeholder h4 { 
+    border-color: #fff;
+    color: #fff;
+}
+div.footer { background-color: Black; }
+.footer, .footer a, footer a:hover, .footer a:active,
+.footer a:visited, .footer a:link { color: White; }
+.footer li:before { content: "| "; }
+.footer li:first-child:before { content: ""; }
+.footer address { 
+    margin-bottom: 0;
+    margin-left: 0.5em;
+}
+.footer address a { text-decoration: none; }
+.footer address a:after, .footer .adr:after { content: " |"; }
+.footer .country-name:before { content: "| "; }
+
+/* 3 stripes decoration effect uses borders */
+.striped {
+    position: relative;
+    width: 161px; 
+}
+.admin .striped, .community .striped { width: 200px; }
+.area .striped { background-color: #bec0c2; }
+.aside .area .striped { background-color: black; }
+.highlight.area .striped { background-color: #da0019; }
+.stripe_layer {
+    border-style: solid;
+    border-width: 1.55em 0.62em 0 0; /* border top / border right = 2.5 */
+    height: 0px;
+    width: 0.6em; /* 61px for stripes decoration */
+    position: absolute;
+    top: 0;
+}
+.bg { border-color: white transparent transparent transparent; }
+.fg { border-color: #bec0c2 transparent transparent transparent; }
+.aside .fg { border-top-color: black; }
+.highlight .fg { border-top-color: #da0019; }
+.fg.lev0 { border-right-color: white; }
+.lev0 { right: 0; }
+.lev1 { right: 0.6em; z-index: 10; }
+.lev2 { right: 1.2em; z-index: 11; }
+.lev3 { right: 1.8em; z-index: 12; }
+.lev4 { right: 2.4em; z-index: 13; }
+.lev5 { right: 3em; z-index: 14; }
+/* 3 stripes decoration effect end */
+
+/* splash */
+.splash {
+	background-color: white;
+	bottom: 0;
+	display: table-cell;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+.splash img { vertical-align: middle; }
+
+
+.icon { 
+	display: inline-block;
+	overflow: hidden;
+	text-indent: -99999px;
+	white-space: nowrap;
+}
+.icon.feed { 
+	background: url('/img/feed-icon-14x14.png') no-repeat;
+	height: 14px;
+	text-decoration: none;
+	width: 14px;
+}
+
