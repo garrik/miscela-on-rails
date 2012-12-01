@@ -141,7 +141,7 @@ div.footer { background-color: Black; }
 	white-space: nowrap;
 }
 .icon.feed { 
-	background: url('/img/feed-icon-14x14.png') no-repeat;
+	background: url('assets/blueprint/plugins/link-icons/icons/feed.png') no-repeat;
 	height: 14px;
 	text-decoration: none;
 	width: 14px;

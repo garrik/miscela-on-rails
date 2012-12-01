@@ -18,10 +18,8 @@
     %meta{ :name => "Keywords", :content => "associazione, miscela, rock, festival, etica, bella, musica, arte, spettacolo, ambiente, giovani" }/
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }/
 
-    %link{ :href => "css/blueprint/screen.css?v=1", :media => "screen, projection", :rel => "stylesheet" }/
-    %link{ :href => "css/blueprint/print.css?v=1", :media => "print", :rel => "stylesheet" }/
-    %link{ :href => "css/miscela.css?v=1", :media => "all", :rel => "stylesheet" }/
-    %link{ :href => "css/decoration.css?v=1", :media => "screen, projection", :rel => "stylesheet" }/
+    = stylesheet_link_tag "application", :media => "screen, projection"
+    = stylesheet_link_tag "application-print", :media => "print"
   %body
     =yield
       

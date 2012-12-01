@@ -1,14 +1,6 @@
 #toolbar { text-align: right; }
 #toolbar a { margin-left: 1em; }
 .header .last { padding-top: 0.2em; }
-/*facebook*/
-.header > .span-18.last { position: relative; }
-.header .feed,
-.header .fb-like { 
-	left: 0.5em; 
-	position: absolute; 
-}
-.home .header .fb-like { left: 3em; }
 
 .header .nav, .header .nav li {
     list-style-type: none;
