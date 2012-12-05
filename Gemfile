@@ -43,3 +43,15 @@ gem "haml"
 # Include to fix /usr/local/rvm/gems/ruby-1.8.7-p371/gems/execjs-1.4.0/lib/execjs/runtimes.rb:51:in `autodetect': Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
 gem 'execjs'
 gem 'therubyracer'
+
+group :test, :development do
+  gem 'turn'
+  gem 'rspec-rails' 
+  gem 'capybara'
+#  gem install rb-inotify
+#  gem 'guard-rspec'
+end
+
+#group :development do
+#  gem 'win32console'
+#end
