@@ -21,7 +21,9 @@
     = stylesheet_link_tag "application", :media => "screen, projection"
     = stylesheet_link_tag "application-print", :media => "print"
   %body
-    =yield
+    .container
+      =render '/layouts/header'
+      =yield
       
     -# 
       Javascript at the bottom for fast page loading
