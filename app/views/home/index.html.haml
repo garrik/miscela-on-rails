@@ -1,65 +1,33 @@
+-content_for :page_title do
+  %title
+    L'Associazione Miscela ti da il benvenuto sul suo sito ufficiale
 .aside.span-6
   .area
-    .striped 
-      Agenda
-      .stripe_layer.fg.lev0
-      .stripe_layer.bg.lev1
-      .stripe_layer.fg.lev2
-      .stripe_layer.bg.lev3
-      .stripe_layer.fg.lev4
-      .stripe_layer.bg.lev5
+    =render :partial => '/shared/stripes', :locals => { :label => 'Agenda' }
   #scrollup
     .wait
       Attendere il caricamento delle notizie...
 .main.span-18.last
   .main-zone.last
     .area.highlight
-      .striped
-        Main News
-        .stripe_layer.fg.lev0
-        .stripe_layer.bg.lev1
-        .stripe_layer.fg.lev2
-        .stripe_layer.bg.lev3
-        .stripe_layer.fg.lev4
-        .stripe_layer.bg.lev5
+      =render :partial => '/shared/stripes', :locals => { :label => 'Main news' }
     %h2.hidden
       MRFX
     %a.manifesto{ :href => "download/MRFX Anticipazioni.pdf", :onclick => "_gaq.push(['_trackPageview', '/downloads/MRFX Anticipazioni'])", :target => "_blank" }
       %img{ :alt => "Immagine di Miscela Rock Festival Decima Edizione", :src => "img/index/BANNER MRFX.jpg" }
   .left-zone.span-6
     .area.highlight
-      .striped
-        Contest
-        .stripe_layer.fg.lev0
-        .stripe_layer.bg.lev1
-        .stripe_layer.fg.lev2
-        .stripe_layer.bg.lev3
-        .stripe_layer.fg.lev4
-        .stripe_layer.bg.lev5
+      =render :partial => '/shared/stripes', :locals => { :label => 'Contest' }
     %a.manifesto{ :href => "http://www.facebook.com/pages/BELLA-KAZZO/240763659289248", :target => "_blank" }
       %img{ :alt => "Logo di BELLA KAZZO", :src => "img/index/bk.png" }
   .center-zone.span-6
     .area.highlight
-      .striped
-        Iniziative
-        .stripe_layer.fg.lev0
-        .stripe_layer.bg.lev1
-        .stripe_layer.fg.lev2
-        .stripe_layer.bg.lev3
-        .stripe_layer.fg.lev4
-        .stripe_layer.bg.lev5
+      =render :partial => '/shared/stripes', :locals => { :label => 'Iniziative' }
     %a.manifesto{ :href => "http://www.facebook.com/pages/Musicisti-al-Verde/216828475002855", :target => "_blank" }
       %img{ :alt => "Logo di musicisti al verde", :src => "img/musicisti-al-verde.jpg" }
   .right-zone.span-6.last
     .area.highlight
-      .striped
-        Attività
-        .stripe_layer.fg.lev0
-        .stripe_layer.bg.lev1
-        .stripe_layer.fg.lev2
-        .stripe_layer.bg.lev3
-        .stripe_layer.fg.lev4
-        .stripe_layer.bg.lev5
+      =render :partial => '/shared/stripes', :locals => { :label => 'Attività' }
     %a{ :href => "download/progetto_scuolina_yeka_forest.pdf", :onclick => "_gaq.push(['_trackPageview', '/downloads/scuolina-yeka-forest'])", :target => "_blank" }
       %img{ :alt => "Logo di Yeka Forest", :src => "img/index/YekaForest.jpg", :title => "Miscela Rock Festival for Scuolina di addis" }
 .footer.span-24.last
