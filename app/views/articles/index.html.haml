@@ -3,7 +3,7 @@
     Le ultime notizie sulle attività dell'associazione
 .aside.span-6
   =render '/layouts/follow_us'
-.main.span-18.last
+.main.span-18.last{ :role => 'main' }
   .area.highlight
     =render :partial => '/shared/stripes', :locals => { :label => 'News' }
   - for article in @articles
@@ -16,3 +16,19 @@
           il 
           %span.date= article.created_at
       %div= article.content
+
+  .area.highlight
+    =render :partial => '/shared/stripes', :locals => { :label => 'Pubblicazione' }
+  %h2
+    Nuovo articolo
+  =form_for(Article.new, :html => { :role => 'form' }) do |f|
+    %p
+      =f.label :title
+      =f.text_field :title
+    %p
+      =f.label :content
+      =f.text_field :content
+    %p
+      =f.submit
+    %p
+      I campi contrassegnati dall'asterisco (*) sono obbligatori.    
