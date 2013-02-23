@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   def index
+    @article = Article.new
     @articles = Article.all
   end
   
@@ -13,5 +14,10 @@ class ArticlesController < ApplicationController
     Article.create params[:article]
     redirect_to :back
   end
-  
+
+  def edit
+    @article = Article.find params[:id]
+    redirect_to :back
+    
+  end
 end

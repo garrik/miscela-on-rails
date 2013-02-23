@@ -4,10 +4,10 @@
 .aside.span-6
   .area
     =render :partial => '/shared/stripes', :locals => { :label => 'Agenda' }
-  #scrollup
+  #scrollup{ :role => 'application' }
     .wait
       Attendere il caricamento delle notizie...
-.main.span-18.last
+.main.span-18.last{ :role => 'main' }
   .main-zone.last
     .area.highlight
       =render :partial => '/shared/stripes', :locals => { :label => 'Main news' }

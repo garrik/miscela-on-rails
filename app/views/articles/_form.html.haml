@@ -1,0 +1,11 @@
+=form_for(@article, :html => { :role => 'form' }) do |f|
+  %p
+    =f.label :title
+    =f.text_field :title
+  %p
+    =f.label :content
+    =f.text_field :content
+  %p
+    =f.submit
+  %p
+    I campi contrassegnati dall'asterisco (*) sono obbligatori.    
