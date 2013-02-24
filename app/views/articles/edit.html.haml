@@ -1,0 +1,11 @@
+-content_for :page_title do
+  %title
+    Pubblicazione articolo
+.aside.span-6{ :role => 'complementary' }
+  =render '/layouts/follow_us'
+.main.span-18.last{ :role => 'main' }
+  .area.highlight
+    =render :partial => '/shared/stripes', :locals => { :label => 'Pubblicazione' }
+  %h2
+    Modifica articolo
+  =render 'form'

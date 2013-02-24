@@ -33,19 +33,25 @@ describe "Articles" do
   describe "PUT /articles" do
     it "edits an article" do
       visit articles_path
-      page.has_selector?('.article:nth-child(2) a')
-      page.has_css?('.article')
-      page.should have_selector('.article')
-      page.should have_css('.article')
-      page.should have_link 'Edit'
+      #print page.html
+      #save_and_open_page
+      #page.has_selector?('.article:nth-child(2) a')
+      #page.has_css?('.article')
+      #page.should have_selector('.article')
+      #page.should have_css('.article')
 
-      within(".article:nth-child(2) a") do
-        print page.html
-        page.should have_link 'Edit'
-        click_link 'Edit'
-      end
+      find('.article:nth-child(2) a').should have_content 'Edit'
+      #find('.article:nth-child(2)').click_link 'Edit'
+      all('.article').first.click_link 'Edit'
+      #find('.article:nth-child(2) a').click
+
+      #within(".article:nth-child(2) a") do
+      #  find 'a'
+      #  page.should have_link 'Edit'
+      #  click_link 'Edit'
+      #end
       
-      current_path.should == edit_articles_path(@article)
+      current_path.should == edit_article_path(@article)
       page.should have_content 'Secondo post'
       #find_field('Article').value.should == 'Secondo post'
 

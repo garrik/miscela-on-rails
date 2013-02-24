@@ -16,8 +16,15 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find params[:id]
-    redirect_to :back
-    
+    @article = Article.find params[:id]    
+  end
+
+  def update
+    article = Article.find params[:id]
+    if article.update_attributes params[:article]
+      redirect_to articles_path
+    else
+      redirect_to :back
+    end
   end
 end
