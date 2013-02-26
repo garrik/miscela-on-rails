@@ -33,7 +33,6 @@ describe "Articles" do
   describe "PUT /articles" do
     it "edits an article" do
       visit articles_path
-      #print page.html
       #save_and_open_page
       #page.has_selector?('.article:nth-child(2) a')
       #page.has_css?('.article')
@@ -52,8 +51,9 @@ describe "Articles" do
       #end
       
       current_path.should == edit_article_path(@article)
-      page.should have_content 'Secondo post'
-      #find_field('Article').value.should == 'Secondo post'
+      #print page.html
+      #page.should have_content 'Primo post'
+      find_field('article[title]').value.should == 'Primo post'
 
       fill_in "article[title]", :with => 'Post modificato'
       click_button "Update Article"
