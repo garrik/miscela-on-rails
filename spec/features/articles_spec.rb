@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Articles" do
   before do
-    @article = Article.create :author => "erik", :title => "Primo post"
+    @article = Article.create :author => "erik", :title => "Primo post", :content => "bla bla bla"
   end
 
   describe "GET /articles" do
@@ -60,6 +60,25 @@ describe "Articles" do
 
       current_path.should == articles_path
       page.should have_content 'Post modificato'
+    end
+    it "should not create article with empty title" do
+      visit articles_path
+      fill_in "article[title]", :with => ''
+      click_button "Create Article"
+      current_path.should == articles_path
+      page.should have_content 'Error'
+    end
+    it "should not update article with empty title" do
+      visit edit_article_path(@article)
+      fill_in "article[title]", :with => ''
+      click_button "Update Article"
+      current_path.should == edit_article_path(@article)
+    end
+    it "should not create article with empty content" do
+      visit articles_path
+      fill_in "article[content]", :with => ''
+      click_button "Create Article"
+      current_path.should == articles_path
     end
   end
 end

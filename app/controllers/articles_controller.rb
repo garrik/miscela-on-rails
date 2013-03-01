@@ -11,8 +11,12 @@ class ArticlesController < ApplicationController
     #Article.new
     #Article.save 
     
-    Article.create params[:article]
-    redirect_to :back
+    article = Article.create params[:article]
+    if article.persisted?
+      redirect_to articles_path, :notice => 'Article created'
+    else
+      redirect_to :back, :notice => 'Error on article'
+    end
   end
 
   def edit
