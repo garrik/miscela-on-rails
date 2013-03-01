@@ -1,3 +1,6 @@
+-flash.each do |name, message|
+  %div{ :class => "message message_#{name}" }
+    =message
 =form_for(@article, :html => { :role => 'form' }) do |f|
   %p
     =f.label :title

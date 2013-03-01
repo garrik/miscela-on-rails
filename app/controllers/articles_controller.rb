@@ -22,9 +22,9 @@ class ArticlesController < ApplicationController
   def update
     article = Article.find params[:id]
     if article.update_attributes params[:article]
-      redirect_to articles_path
+      redirect_to articles_path, :notice => 'Article updated'
     else
-      redirect_to :back
+      redirect_to :back, :notice => 'Error on article'
     end
   end
 end
