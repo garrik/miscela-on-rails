@@ -40,6 +40,7 @@ describe "Articles" do
       #page.should have_css('.article')
 
       find('.article:nth-child(2) a').should have_content 'Edit'
+      #find ("#article_#{@article.id} a").should have_content 'Edit'
       #find('.article:nth-child(2)').click_link 'Edit'
       all('.article').first.click_link 'Edit'
       #find('.article:nth-child(2) a').click
@@ -79,6 +80,18 @@ describe "Articles" do
       fill_in "article[content]", :with => ''
       click_button "Create Article"
       current_path.should == articles_path
+    end
+  end
+  
+  describe "DELETE /articles" do
+    it "deletes an article" do
+      visit articles_path
+      #find ("#article_#{@article.id} input").click 'Delete'
+      all('.article').first.find_button('Delete').click
+      current_path.should == articles_path
+      page.should have_content 'Article deleted'
+      page.should have_no_content 'Post modificato'
+      
     end
   end
 end

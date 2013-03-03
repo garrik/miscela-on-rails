@@ -31,4 +31,9 @@ class ArticlesController < ApplicationController
       redirect_to :back, :notice => 'Error on article'
     end
   end
+  
+  def destroy
+    Article.destroy params[:id]
+    redirect_to :back, :notice => 'Article deleted'
+  end
 end
