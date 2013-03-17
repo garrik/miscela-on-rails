@@ -2,7 +2,12 @@ Miscela::Application.routes.draw do
   get "articles/index"
 
   get "home/index"
-  resources :articles
+  resources :articles do
+    member do
+      get 'preview'
+    end
+  end
+  #resources :articles
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

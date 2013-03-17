@@ -1,7 +1,8 @@
--flash.each do |name, message|
-  %div{ :class => "message message_#{name}" }
-    =message
+=render '/layouts/feedbacks'
 =form_for(@article, :html => { :role => 'form' }) do |f|
+  -#-@article.errors.full_messages.each do |msg|
+  -#  %p=msg
+  =f.hidden_field (:draft, :value => 'true')
   %p
     =f.label :title
     =f.text_field :title
@@ -9,6 +10,6 @@
     =f.label :content
     =f.text_field :content
   %p
-    =f.submit
+    =submit_tag 'Invia'
   %p
     I campi contrassegnati dall'asterisco (*) sono obbligatori.    

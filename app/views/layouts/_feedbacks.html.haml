@@ -1,0 +1,18 @@
+%div=flash.inspect
+%div=@article.inspect
+%div=debug @errors
+-if flash[:notice] || flash[:alert] || @errors
+  -if flash[:alert] || @errors
+    -message_class = "error"
+  -elsif flash[:notice]
+    -message_class = "success"
+  #message{ :class => message_class }
+    -if flash[:notice]
+      =flash[:notice]
+    -if flash[:alert]
+      %strong=flash[:alert]
+    -if defined?(@article.errors) && @article.errors
+      #ul
+        -@article.errors.each do |message|
+          %li= message
+

@@ -1,0 +1,9 @@
+%h3= @article.title
+.meta
+  Scritto da 
+  %span.author= @article.author
+  il 
+  %span.date= @article.created_at
+  -if @article.draft
+    Bozza
+%div= @article.content

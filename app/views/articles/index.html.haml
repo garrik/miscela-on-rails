@@ -6,24 +6,13 @@
 .main.span-18.last{ :role => 'main' }
   .area.highlight
     =render :partial => '/shared/stripes', :locals => { :label => 'News' }
-  - for article in @articles
+  =render '/layouts/feedbacks'
+  -for article in @articles
+    -@article = article
     %div{ :id => "article_#{article.id}", :class => "article" }
-      %ul
+      %ul.tools
         %li
-          =link_to 'Edit', edit_article_path(article)
+          =link_to 'Modifica', edit_article_path(article)
         %li
-          -#=link_to 'Delete', delete_article_path(article)
-          =button_to 'Delete', article, :method => 'delete'
-      %h3= article.title
-      .meta
-        Scritto da 
-        %span.author= article.author
-        il 
-        %span.date= article.created_at
-      %p= article.content
-
-  .area.highlight
-    =render :partial => '/shared/stripes', :locals => { :label => 'Pubblicazione' }
-  %h2
-    Nuovo articolo
-  =render 'form'
+          =button_to 'Cancella', article, :method => 'delete'
+      =render 'article'

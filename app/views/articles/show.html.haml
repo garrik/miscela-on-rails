@@ -1,0 +1,12 @@
+-content_for :page_title do
+  %title
+    =@article.title
+.aside.span-6{ :role => 'complementary' }
+  =render '/layouts/follow_us'
+.main.span-18.last{ :role => 'main' }
+  .area.highlight
+    =render :partial => '/shared/stripes', :locals => { :label => 'News' }
+  =render '/layouts/feedbacks'
+  %h2.hidden=@article.title
+  %div{ :id => "article_#{@article.id}", :class => "article" }
+    =render 'article'

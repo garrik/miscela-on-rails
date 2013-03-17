@@ -4,36 +4,65 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
   
+  def show
+    @article = Article.find params[:id]    
+  end
+
   def create
     #render :text => params.inspect
     
     #do it manually
     #Article.new
-    #Article.save 
+    #Article.save
+
     
-    article = Article.create params[:article]
-    if article.persisted?
-      redirect_to articles_path, :notice => 'Article created'
-    else
-      redirect_to :back, :notice => 'Error on article'
+    @article = Article.create(params[:article])
+    #@article = Article.new
+    #@article.save
+    if @article.errors.any?
+      @errors= @article.errors
+      #@errors.merge ({ :eccomi => 'eccomi' })
     end
+    if @article.persisted?
+      redirect_to preview_article_path(@article.id), :notice => 'Articolo creato'
+    else
+      redirect_to :back, :alert => 'Errore, articolo non creato'
+    end
+  end
+
+  def new
+    @article = Article.new
+    #@errors ={ :eccomi => 'eccomi new' }
   end
 
   def edit
     @article = Article.find params[:id]    
   end
 
+  def preview
+    @article = Article.find params[:id]    
+  end
+
   def update
-    article = Article.find params[:id]
-    if article.update_attributes params[:article]
-      redirect_to articles_path, :notice => 'Article updated'
+    @article = Article.find params[:id]
+    if @article.update_attributes params[:article]
+      if @article.errors.any?
+        @errors= @article.errors
+        logger.debug @errors
+      end
+      if @article.draft == true
+        redirect_to preview_article_path(@article.id), :notice => 'Articolo modificato'
+      else
+        redirect_to article_path(@article.id), :notice => 'Articolo pubblicato'
+      end
     else
-      redirect_to :back, :notice => 'Error on article'
+      redirect_to :back, :alert => 'Errore'
     end
   end
   
   def destroy
     Article.destroy params[:id]
-    redirect_to :back, :notice => 'Article deleted'
+    redirect_to :back, :notice => 'Articolo cancellato'
   end
+
 end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Articles" do
   before do
-    @article = Article.create :author => "erik", :title => "Primo post", :content => "bla bla bla"
+    @article = Article.create :author => "erik", :title => "Primo post", :content => "bla bla bla", :draft => false
   end
 
   describe "GET /articles" do
@@ -17,69 +17,94 @@ describe "Articles" do
         #meta.include? "erik"
       #end
     end
+  end
     
-    it "creates an article" do
-      visit articles_path
+  describe "GET /articles/new" do
+    it "displays article creation form" do
+      visit new_article_path
       fill_in "article[title]", :with => 'Secondo post'
       fill_in "article[content]", :with => 'bla bla bla'
-      click_button "Create Article"
-      
-      current_path.should == articles_path
-      page.should have_content 'Secondo post'
-      page.should have_content 'bla bla bla'
+      find_button "Invia"
     end
   end
-  
+
+  describe "POST /articles" do
+    it "creates an article" do
+      visit new_article_path
+      fill_in "article[title]", :with => 'Secondo post'
+      fill_in "article[content]", :with => 'bla bla bla'
+      click_button "Invia"
+      
+      @new_article = Article.first(:order => 'created_at DESC')
+      current_path.should == preview_article_path(@new_article)
+      page.should have_content 'Bozza'
+      page.should have_content 'Secondo post'
+      page.should have_content 'bla bla bla'
+
+      find('#message').should have_content 'Articolo creato'
+
+      @new_article.draft.should == true
+      click_button "Pubblica"
+
+      current_path.should == article_path(@new_article)
+      #page.should have_no_content 'Bozza'
+      page.should have_content 'Secondo post'
+      page.should have_content 'bla bla bla'
+      find('#message').should have_content 'Articolo pubblicato'
+
+      #Rails.logger.debug '@new_article.draft = ' + @new_article.draft.to_s
+      #@new_article.draft.should == false
+    end
+  end
+
   describe "PUT /articles" do
     it "edits an article" do
+      Rails.logger.debug '@article.inspect = ' + @article.inspect
       visit articles_path
-      #save_and_open_page
-      #page.has_selector?('.article:nth-child(2) a')
-      #page.has_css?('.article')
-      #page.should have_selector('.article')
-      #page.should have_css('.article')
+      find("#article_#{@article.id} a").should have_content 'Modifica'
+      find("#article_#{@article.id}").click_link 'Modifica'
 
-      find('.article:nth-child(2) a').should have_content 'Edit'
-      #find ("#article_#{@article.id} a").should have_content 'Edit'
-      #find('.article:nth-child(2)').click_link 'Edit'
-      all('.article').first.click_link 'Edit'
-      #find('.article:nth-child(2) a').click
-
-      #within(".article:nth-child(2) a") do
-      #  find 'a'
-      #  page.should have_link 'Edit'
-      #  click_link 'Edit'
-      #end
-      
       current_path.should == edit_article_path(@article)
-      #print page.html
-      #page.should have_content 'Primo post'
-      find_field('article[title]').value.should == 'Primo post'
+      fill_in "article[title]", :with => 'Primo post modificato'
+      fill_in "article[content]", :with => 'bla bla bla modificato'
+      click_button "Invia"
+      
+      current_path.should == preview_article_path(@article)
+      page.should have_content 'Primo post modificato'
+      page.should have_content 'bla bla bla modificato'
 
-      fill_in "article[title]", :with => 'Post modificato'
-      click_button "Update Article"
+      find('#message').should have_content 'Articolo modificato'
 
-      current_path.should == articles_path
-      page.should have_content 'Post modificato'
+      @article.draft.should == true
+      click_button "Pubblica"
+
+      current_path.should == article_path(@article)
+      page.should have_content 'Primo post modificato'
+      page.should have_content 'bla bla bla modificato'
+      find('#message').should have_content 'Articolo pubblicato'
+
+      @article.draft.should == false
     end
     it "should not create article with empty title" do
-      visit articles_path
+      visit new_article_path
       fill_in "article[title]", :with => ''
-      click_button "Create Article"
-      current_path.should == articles_path
+      click_button "Invia"
+      current_path.should == new_article_path
+      page.should have_content 'Error'
+    end
+    it "should not create article with empty content" do
+      visit new_article_path
+      fill_in "article[content]", :with => ''
+      click_button "Invia"
+      current_path.should == new_article_path
       page.should have_content 'Error'
     end
     it "should not update article with empty title" do
       visit edit_article_path(@article)
       fill_in "article[title]", :with => ''
-      click_button "Update Article"
+      click_button "Invia"
       current_path.should == edit_article_path(@article)
-    end
-    it "should not create article with empty content" do
-      visit articles_path
-      fill_in "article[content]", :with => ''
-      click_button "Create Article"
-      current_path.should == articles_path
+      page.should have_content 'Error'
     end
   end
   
@@ -87,11 +112,12 @@ describe "Articles" do
     it "deletes an article" do
       visit articles_path
       #find ("#article_#{@article.id} input").click 'Delete'
-      all('.article').first.find_button('Delete').click
+      all('.article').first.find_button('Cancella').click
       current_path.should == articles_path
-      page.should have_content 'Article deleted'
-      page.should have_no_content 'Post modificato'
-      
+      #save_and_open_page
+      page.should have_content 'Articolo cancellato'
+      #page.should_not have_content 'bla bla bla'
+
     end
   end
 end

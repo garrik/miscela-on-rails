@@ -1,0 +1,22 @@
+-content_for :page_title do
+  %title
+    Le ultime notizie sulle attività dell'associazione
+.aside.span-6{ :role => 'complementary' }
+  =render '/layouts/follow_us'
+.main.span-18.last{ :role => 'main' }
+  .area.highlight
+    =render :partial => '/shared/stripes', :locals => { :label => 'News' }
+  =render '/layouts/feedbacks'
+  %h2
+    Anteprima articolo
+  %div{ :id => "article_#{@article.id}", :class => "article" }
+    -#%ul
+    -#  %li
+    -#    =link_to 'Modifica', edit_article_path(@article)
+    -#  %li
+    -#    =button_to 'Cancella', @article, :method => 'delete'
+    =render 'article'
+  =form_for(@article, :html => { :role => 'form' }) do |f|
+    =f.hidden_field (:draft, :value => 'false')
+    %p
+      =submit_tag 'Pubblica'
