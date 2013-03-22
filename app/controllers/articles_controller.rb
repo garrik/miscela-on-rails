@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+
   def index
     @article = Article.new
     @articles = Article.all
@@ -16,7 +17,7 @@ class ArticlesController < ApplicationController
     #Article.save
 
     
-    @article = Article.create(params[:article])
+    @article = Article.create(params[:article].merge(:author => 'placeholder'))
     #@article = Article.new
     #@article.save
     if @article.errors.any?
@@ -45,10 +46,10 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find params[:id]
-    if @article.update_attributes params[:article]
+    if @article.update_attributes params[:article].merge(:author => 'placeholder')
       if @article.errors.any?
         @errors= @article.errors
-        logger.debug @errors
+        #logger.debug @errors
       end
       if @article.draft == true
         redirect_to preview_article_path(@article.id), :notice => 'Articolo modificato'

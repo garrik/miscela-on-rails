@@ -1,6 +1,8 @@
 -content_for :page_title do
   %title
     Le ultime notizie sulle attività dell'associazione
+-content_for :page_class do
+  news
 .aside.span-6{ :role => 'complementary' }
   =render '/layouts/follow_us'
 .main.span-18.last{ :role => 'main' }

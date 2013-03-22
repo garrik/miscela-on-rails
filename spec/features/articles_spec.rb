@@ -59,7 +59,7 @@ describe "Articles" do
 
   describe "PUT /articles" do
     it "edits an article" do
-      Rails.logger.debug '@article.inspect = ' + @article.inspect
+      #Rails.logger.debug '@article.inspect = ' + @article.inspect
       visit articles_path
       find("#article_#{@article.id} a").should have_content 'Modifica'
       find("#article_#{@article.id}").click_link 'Modifica'
@@ -70,20 +70,22 @@ describe "Articles" do
       click_button "Invia"
       
       current_path.should == preview_article_path(@article)
+      page.should have_content 'Bozza'
       page.should have_content 'Primo post modificato'
       page.should have_content 'bla bla bla modificato'
 
       find('#message').should have_content 'Articolo modificato'
 
-      @article.draft.should == true
+      #@article.draft.should == true
       click_button "Pubblica"
 
       current_path.should == article_path(@article)
+      page.should have_no_content 'Bozza'
       page.should have_content 'Primo post modificato'
       page.should have_content 'bla bla bla modificato'
       find('#message').should have_content 'Articolo pubblicato'
 
-      @article.draft.should == false
+      #@article.draft.should == false
     end
     it "should not create article with empty title" do
       visit new_article_path

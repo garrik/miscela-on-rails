@@ -1,7 +1,8 @@
 =render '/layouts/feedbacks'
 =form_for(@article, :html => { :role => 'form' }) do |f|
-  -#-@article.errors.full_messages.each do |msg|
-  -#  %p=msg
+  -if @article.errors.any?
+    -@article.errors.full_messages.each do |msg|
+      %p=msg
   =f.hidden_field (:draft, :value => 'true')
   %p
     =f.label :title

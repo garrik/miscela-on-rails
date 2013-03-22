@@ -1,6 +1,8 @@
 -content_for :page_title do
   %title
     L'Associazione Miscela ti da il benvenuto sul suo sito ufficiale
+-content_for :page_class do
+  home
 .aside.span-6
   .area
     =render :partial => '/shared/stripes', :locals => { :label => 'Agenda' }
