@@ -3,7 +3,7 @@
   Scritto da 
   %span.author= @article.author
   il 
-  %span.date= @article.created_at
+  %span.date= l @article.created_at, :format => :long
   -if @article.draft
     Bozza
 %div= @article.content
