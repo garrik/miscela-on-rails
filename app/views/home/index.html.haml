@@ -1,8 +1,7 @@
--content_for :page_title do
-  %title
-    L'Associazione Miscela ti da il benvenuto sul suo sito ufficiale
 -content_for :page_class do
   home
+-content_for :javascript_includes do
+  -javascript_include_tag "/js/home.js"
 .aside.span-6
   .area
     =render :partial => '/shared/stripes', :locals => { :label => 'Agenda' }
@@ -16,12 +15,12 @@
     %h2.hidden
       MRFX
     %a.manifesto{ :href => "download/MRFX Anticipazioni.pdf", :onclick => "_gaq.push(['_trackPageview', '/downloads/MRFX Anticipazioni'])", :target => "_blank" }
-      %img{ :alt => "Immagine di Miscela Rock Festival Decima Edizione", :src => "img/index/BANNER MRFX.jpg" }
+      %img{ :alt => "Immagine di Miscela Rock Festival Decima Edizione", :src => "img/banner-MRF11.png" }
   .left-zone.span-6
     .area.highlight
-      =render :partial => '/shared/stripes', :locals => { :label => 'Contest' }
-    %a.manifesto{ :href => "http://www.facebook.com/pages/BELLA-KAZZO/240763659289248", :target => "_blank" }
-      %img{ :alt => "Logo di BELLA KAZZO", :src => "img/index/bk.png" }
+      =render :partial => '/shared/stripes', :locals => { :label => 'Docufilm' }
+    %a.manifesto{ :href => "http://www.youtube.com/watch?v=EJ-g_3_N0CI", :target => "_blank" }
+      %img{ :alt => "Logo di Ripresa Musica", :src => "img/ripresamusica-resize.jpg" }
   .center-zone.span-6
     .area.highlight
       =render :partial => '/shared/stripes', :locals => { :label => 'Iniziative' }
@@ -31,6 +30,6 @@
     .area.highlight
       =render :partial => '/shared/stripes', :locals => { :label => 'Attività' }
     %a{ :href => "download/progetto_scuolina_yeka_forest.pdf", :onclick => "_gaq.push(['_trackPageview', '/downloads/scuolina-yeka-forest'])", :target => "_blank" }
-      %img{ :alt => "Logo di Yeka Forest", :src => "img/index/YekaForest.jpg", :title => "Miscela Rock Festival for Scuolina di addis" }
+      %img{ :alt => "Logo di Yeka Forest", :src => "img/YekaForest.jpg", :title => "Miscela Rock Festival for Scuolina di addis" }
 #audio-player
 #fb-root

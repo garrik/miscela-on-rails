@@ -31,7 +31,8 @@
     %script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.js" }
     :javascript
       window.jQuery || document.write("<script src='js/jquery-1.8.2.min.js'>\x3C/script>")
-    =javascript_include_tag "application"    
+    =javascript_include_tag "application"
+    =yield :javascript_includes
     -#
       Plugins
     #fb-root
