@@ -4,6 +4,14 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @articles = Article.all
   end
+
+  def headlines
+    @articles = Article.find(:all, :order => "id desc", :limit => 5)
+    respond_to do |format|
+      #format.html 
+      format.json { render :partial => "articles/headlines.json" }
+    end
+  end
   
   def show
     @article = Article.find params[:id]    

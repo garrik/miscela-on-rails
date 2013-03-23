@@ -1,12 +1,16 @@
 Miscela::Application.routes.draw do
-  get "articles/index"
-
   get "home/index"
+
   resources :articles do
     member do
       get 'preview'
     end
+
+    collection do
+      get 'headlines'
+    end
   end
+  get "/headlines.aspx" => "articles#headlines"
   #resources :articles
   # The priority is based upon order of creation:
   # first created -> highest priority.
