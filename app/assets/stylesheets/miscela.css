@@ -1,6 +1,14 @@
 #toolbar { text-align: right; }
 #toolbar a { margin-left: 1em; }
 .header .last { padding-top: 0.2em; }
+/*facebook*/
+.header > .span-18.last { position: relative; }
+.header .feed,
+.header .fb-like { 
+	left: 0.5em; 
+	position: absolute; 
+}
+.home .header .fb-like { left: 3em; }
 
 .header .nav, .header .nav li {
     list-style-type: none;
@@ -34,6 +42,7 @@
     display: inline; 
     margin: 0 0.25em;
 }
+.tools form, .tools div { display: inline; }
 /* personalizzazioni per pagina */
 .splash h1, .contacts h2, 
 .crew h2, .partners h2 { display: none; }
@@ -292,6 +301,39 @@ div.footer {
 .subscriptions a:hover { color: black; }
 .subscriptions a:active { color: black; }
 
+.summary {
+  cursor:pointer;
+}
+.notes {
+  background-color: #FFFFF0;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+.fade {
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  overflow:hidden;
+}
+.in { line-height: 1.2em; }
+.out { line-height: 0em; }
 
-
+.border-arrow {
+  border-style:solid;
+  border-width:0.35em;
+  display:none;
+  width:0;
+  height:0;
+  float:right;
+  margin-left:0.5em;
+}
+.header { cursor: pointer }
+.headerSortUp .border-arrow {
+  border-color: transparent transparent black transparent;
+  display:block;
+}
+.headerSortDown .border-arrow {
+  border-color: black transparent transparent transparent;
+  display:block;
+  margin-top:0.35em;
+}
    
