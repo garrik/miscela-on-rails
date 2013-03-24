@@ -1,0 +1,16 @@
+!!! XML
+%feed{ :xmlns => "http://www.w3.org/2005/Atom"}
+  %title{ 'xml:lang' => 'it-IT'} News dall'associazione Miscela
+  %link{ :href => "#{application_url()}" }/
+  %updated= @articles[-1].updated_at.rfc2822 unless @articles[-1].nil?
+  %id=application_url()
+  %category{ :term => 'musica', 'xml:lang' => 'it-IT' }/
+  %category{ :term => 'presobenismo', 'xml:lang' => 'it-IT' }/
+  -@articles.each do |article|
+    %entry
+      %id=article_url(article.id)
+      %title{ 'xml:lang' => 'it-IT'}=article.title
+      %author
+        %name=article.author
+      %link=article_url(article.id)
+      %updated= article.updated_at.rfc2822
