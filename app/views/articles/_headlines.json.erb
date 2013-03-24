@@ -1,6 +1,1 @@
-[
-  <% @articles.each_with_index do |article, index| %>
-    { "id": "<%= article.id %>", "url": "<%= article_path(article.id) %>", "title": "<%= article.title %>", "content": "<%= article.content %>" }
-    <% unless index == @articles.length - 1 %>,<% end %>
-  <% end %>
-]
+<%= @headlines_container.to_json.html_safe %>

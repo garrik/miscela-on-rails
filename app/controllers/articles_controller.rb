@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
 
   def headlines
     @articles = Article.find(:all, :order => "id desc", :limit => 5)
+    @headlines_container = { :headlines => Array.new }
+    @articles.each do |article|
+      @headlines_container[:headlines].push({ :id => article.id, :url => article_path(article.id), :title => article.title, :content => article.content })
+    end
     respond_to do |format|
       #format.html 
       format.json { render :partial => "articles/headlines.json" }
