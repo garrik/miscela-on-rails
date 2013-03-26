@@ -1,8 +1,7 @@
 class ArticlesController < ApplicationController
-
   def index
     @article = Article.new
-    @articles = Article.all
+    @articles = Article.find(:all, :order => "id desc", :limit => 10)
   end
 
   def headlines
@@ -15,6 +14,10 @@ class ArticlesController < ApplicationController
       #format.html 
       format.json { render :partial => "articles/headlines.json" }
     end
+  end
+  def rss_feeds
+    @articles = Article.find(:all, :order => "id desc", :limit => 10)
+    render :partial => "articles/rss_feeds.xml"  
   end
   
   def show
