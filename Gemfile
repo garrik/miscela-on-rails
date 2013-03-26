@@ -45,6 +45,10 @@ gem 'execjs'
 gem 'therubyracer'
 
 group :test, :development do
+  gem 'pg'
+end
+
+group :test, :development do
   gem 'turn'
   gem 'rspec-rails' 
   gem 'capybara'
