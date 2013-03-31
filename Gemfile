@@ -59,6 +59,9 @@ group :test, :development do
   
   #enable ability to open test page in browser
   #gem 'launchy'
+
+  # fix error running 'bundle exec rake assets:precompile' on fedora 17
+  gem 'minitest'
 end
 
 #group :development do
