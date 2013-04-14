@@ -19,7 +19,7 @@
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }/
 
     =stylesheet_link_tag "application", :media => "screen, projection"
-    =stylesheet_link_tag "application-print", :media => "print"
+    -#=stylesheet_link_tag "application-print", :media => "print"
   %body{ :class => yield(:page_class) }
     .container
       =render '/layouts/header'
