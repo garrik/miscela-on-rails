@@ -13,7 +13,7 @@ Miscela::Application.routes.draw do
   end
   # .net url backward compatibility
   get "/headlines.aspx" => "articles#headlines"
-  get "/feeds.aspx" => "articles#rss_feeds"
+  get "/Feed.aspx" => "articles#rss_feeds"
   #resources :articles
   # The priority is based upon order of creation:
   # first created -> highest priority.
