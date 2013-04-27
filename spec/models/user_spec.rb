@@ -14,6 +14,7 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:authenticate) }
 
   describe "when userid is already taken" do
   	before do
@@ -38,4 +39,19 @@ describe User do
   	it { should_not be_valid }
   end
 
+  describe "return value of authenticate method" do
+    before { @user.save }
+    let(:found_user) { User.find_by_userid(@user.userid) }
+
+    describe "with valid password" do
+      it { should == found_user.authenticate(@user.password) }
+    end
+
+    describe "with invalid password" do
+      let(:user_for_invalid_password) { found_user.authenticate("invalid") }
+
+      it { should_not == user_for_invalid_password }
+      specify { user_for_invalid_password.should be_false }
+    end
+  end  
 end
