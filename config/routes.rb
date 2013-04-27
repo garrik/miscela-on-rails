@@ -1,6 +1,10 @@
 Miscela::Application.routes.draw do
   get "home/index"
 
+  resources :sessions, :only => [ :new, :create, :destroy ]
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy', :via => :delete
+
   resources :articles do
     member do
       get 'preview'
