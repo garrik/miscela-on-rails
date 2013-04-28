@@ -22,7 +22,7 @@ end
 #gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.1'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -48,14 +48,14 @@ end
 
 group :test, :development do
   gem 'sqlite3'
-  gem 'turn'
+  #gem 'turn'
   gem 'rspec-rails' 
   gem 'capybara'
-  #gem "factory_girl_rails", "~> 4.0"
+  gem "factory_girl_rails", "~> 4.0"
 
-  #gem 'rb-inotify'
-  #gem 'guard-rspec'
-  #gem 'libnotify'
+  gem 'rb-inotify'
+  gem 'guard-rspec'
+  gem 'libnotify'
   
   #enable ability to open test page in browser
   #gem 'launchy'
