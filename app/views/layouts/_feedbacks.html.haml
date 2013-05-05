@@ -1,18 +1,14 @@
 -#%div=flash.inspect
 -#%div=@article.inspect
 -#%div=debug @errors
--if flash[:notice] || flash[:alert] || @errors
-  -if flash[:alert] || @errors
-    -message_class = "error"
-  -elsif flash[:notice]
-    -message_class = "success"
-  #message{ :class => message_class }
-    -if flash[:notice]
-      %strong=flash[:notice]
-    -if flash[:alert]
-      %strong=flash[:alert]
-    -if @article.errors.any?
-      %ul
-        -@article.errors.each do |message|
-          %li= message
-
+-classes = []
+-feedbacks = []
+-flash.each do |key, val|
+  -if key == :alert
+    -classes += [ "error" ]
+  -elsif key == :notice
+    -classes += [ "success" ]
+  -feedbacks += [ val ]
+-if !(feedbacks.empty?)
+  #message{ :class => classes.join(" ") }
+    =feedbacks.join("<br/>").html_safe
