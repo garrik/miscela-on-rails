@@ -13,8 +13,11 @@
       #toolbar.reserved
         %a{ :href => "#bella", :rel => "nofollow" }
           Ferma la musica
-        %a{ :href => new_article_path, :rel => "nofollow" }
-          Area riservata
+        -if signed_in?
+          %a{ :href => new_article_path, :rel => "nofollow" } Area riservata
+          =link_to "Log out", signout_path, method: "delete"
+        -else
+          %a{ :href => signin_path, :rel => "nofollow" } Area riservata
     %ul.nav{ :role => 'navigation' }
       %li
         %a{ :href => articles_path }
@@ -25,3 +28,4 @@
       %li
         %a{ :href => "partners.htm" }
           Partner
+  = debug(signed_in?)

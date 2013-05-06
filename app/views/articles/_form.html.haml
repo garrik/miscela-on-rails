@@ -3,7 +3,7 @@
   -if @article.errors.any?
     -@article.errors.full_messages.each do |msg|
       %p=msg
-  =f.hidden_field (:draft, :value => 'true')
+  =f.hidden_field(:draft, :value => 'true')
   %p
     =f.label :title
     =f.text_field :title

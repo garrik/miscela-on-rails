@@ -31,8 +31,9 @@ describe "Authentication" do
       end
   
       it { should have_selector('title', text: 'Pubblicazione articolo') }
-      it { should have_link('Sign out', href: signout_path) }
-      it { should_not have_link('Sign in', href: signin_path) }
+      it { should have_link('Log out', href: signout_path) }
+      it { should have_link('Area riservata', href: new_article_path) }
+      it { should_not have_link('Area riservata', href: signin_path) }
     end
   
   end
