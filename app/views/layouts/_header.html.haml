@@ -1,7 +1,7 @@
 .header.span-24.last
   .aside.span-6{ :role => 'banner' }
     %h1
-      %a{ :href => home_index_path, :title => "Associazione Miscela" }
+      %a{ :href => root_path, :title => "Associazione Miscela" }
         %img{ :alt => "Logo Miscela", :src => "assets/MiscelaLogo.png" }
   .span-18.last
     .span-6
@@ -15,7 +15,7 @@
           Ferma la musica
         -if signed_in?
           %a{ :href => new_article_path, :rel => "nofollow" } Area riservata
-          =link_to "Log out", signout_path, method: "delete"
+          =button_to 'Esci', signout_path, method: "delete"
         -else
           %a{ :href => signin_path, :rel => "nofollow" } Area riservata
     %ul.nav{ :role => 'navigation' }
@@ -28,4 +28,3 @@
       %li
         %a{ :href => "partners.htm" }
           Partner
-  = debug(signed_in?)

@@ -31,9 +31,15 @@ describe "Authentication" do
       end
   
       it { has_title? "Pubblicazione articolo" }
-      it { should have_link('Log out', href: signout_path) }
+      it { has_button? "Esci" }
       it { should have_link('Area riservata', href: new_article_path) }
-      it { should_not have_link('Area riservata', href: signin_path) }      
+      it { should_not have_link('Area riservata', href: signin_path) }
+
+      describe "followed by signout" do
+        before { click_button "Esci" }
+        it { should have_link "Area riservata" }
+      end
+
     end
   
   end
