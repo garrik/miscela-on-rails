@@ -7,7 +7,7 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_content "area di amministrazione" }
+    it { should have_content "Area di amministrazione" }
 
     describe "with invalid information" do
       before { click_button "Accedi" }
@@ -30,10 +30,10 @@ describe "Authentication" do
         click_button "Accedi"
       end
   
-      it { should have_selector('title', text: 'Pubblicazione articolo') }
+      it { has_title? "Pubblicazione articolo" }
       it { should have_link('Log out', href: signout_path) }
       it { should have_link('Area riservata', href: new_article_path) }
-      it { should_not have_link('Area riservata', href: signin_path) }
+      it { should_not have_link('Area riservata', href: signin_path) }      
     end
   
   end
