@@ -43,4 +43,27 @@ describe "Authentication" do
     end
   
   end
+  
+  describe "authorization" do
+
+    describe "for non-signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      describe "in the Articles controller" do
+
+        describe "visiting the create article page" do
+          before { visit new_article_path(user) }
+          it { has_title? "Entra nell'area di amministrazione" }
+        end
+
+        describe "submitting to the update action" do
+          let(:article) { FactoryGirl.create(:article) }
+
+          # put doesn't exist: see http://www.ruby-forum.com/topic/2407309
+          before { put article_path(article) }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
+    end
+  end
 end

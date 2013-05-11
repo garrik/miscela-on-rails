@@ -18,6 +18,6 @@
     -#    =button_to 'Cancella', @article, :method => 'delete'
     =render 'article'
   =form_for(@article, :html => { :role => 'form' }) do |f|
-    =f.hidden_field (:draft, :value => 'false')
+    =f.hidden_field(:draft, :value => 'false')
     %p
       =submit_tag 'Pubblica'
