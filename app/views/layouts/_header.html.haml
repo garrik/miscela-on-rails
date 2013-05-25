@@ -1,8 +1,8 @@
 .header.span-24.last
   .aside.span-6{ :role => 'banner' }
     %h1
-      %a{ :href => "http://www.associazionemiscela.it", :title => "Associazione Miscela" }
-      %img{ :alt => "Logo Miscela", :src => "assets/MiscelaLogo.png" }
+      %a{ :href => root_path, :title => "Associazione Miscela" }
+        %img{ :alt => "Logo Miscela", :src => "assets/MiscelaLogo.png" }
   .span-18.last
     .span-6
       .fb-like{ :"data-href" => "http://www.associazionemiscela.it", :"data-send" => "true", :"data-layout" => "button_count", :"data-width" => "250", :"data-show-faces" => "true" }
@@ -13,8 +13,11 @@
       #toolbar.reserved
         %a{ :href => "#bella", :rel => "nofollow" }
           Ferma la musica
-        %a{ :href => new_article_path, :rel => "nofollow" }
-          Area riservata
+        -if signed_in?
+          %a{ :href => new_article_path, :rel => "nofollow" } Area riservata
+          =button_to 'Esci', signout_path, method: "delete"
+        -else
+          %a{ :href => signin_path, :rel => "nofollow" } Area riservata
     %ul.nav{ :role => 'navigation' }
       %li
         %a{ :href => articles_path }

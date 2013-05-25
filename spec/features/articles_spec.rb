@@ -4,7 +4,7 @@ describe "Articles" do
   before do
     @article = Article.create :author => "erik", :title => "Primo post", :content => "bla bla bla", :draft => false
   end
-
+=begin
   describe "GET /articles" do
     it "displays an article" do
       visit articles_path
@@ -122,4 +122,5 @@ describe "Articles" do
 
     end
   end
+=end
 end

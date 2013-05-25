@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_filter :signed_in_user, only: [ :create, :new, :edit, :preview, :update, :destroy ]
+  
   def index
     @article = Article.new
     @articles = Article.find(:all, :order => "id desc", :limit => 10)
@@ -81,4 +83,8 @@ class ArticlesController < ApplicationController
     redirect_to :back, :notice => 'Articolo cancellato'
   end
 
+  private
+  def signed_in_user
+    redirect_to signin_path, notice: "Perfavore eseguire l'accesso al sito con username e password" unless signed_in?
+  end
 end
