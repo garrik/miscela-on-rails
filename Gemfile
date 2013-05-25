@@ -10,11 +10,11 @@ gem 'json'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  #gem 'sass-rails',   '~> 3.2.3'
-  #gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -39,8 +39,8 @@ gem 'bcrypt-ruby', '~> 3.0.1'
 gem "haml"
 
 # Include to fix /usr/local/rvm/gems/ruby-1.8.7-p371/gems/execjs-1.4.0/lib/execjs/runtimes.rb:51:in `autodetect': Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
-gem 'execjs'
-gem 'therubyracer'
+# gem 'execjs'
+# gem 'therubyracer'
 
 group :production do
   gem 'pg'
@@ -58,7 +58,7 @@ group :test, :development do
   gem 'libnotify'
   
   #enable ability to open test page in browser
-  #gem 'launchy'
+  gem 'launchy'
 
   # fix error running 'bundle exec rake assets:precompile' on fedora 17
   # gem 'minitest'
