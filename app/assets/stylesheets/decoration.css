@@ -141,9 +141,19 @@ div.footer { background-color: Black; }
 	white-space: nowrap;
 }
 .icon.feed { 
-	background: url('assets/blueprint/plugins/link-icons/icons/feed.png') no-repeat;
+	background: url('/assets/blueprint/plugins/link-icons/icons/feed.png') no-repeat;
 	height: 14px;
 	text-decoration: none;
 	width: 14px;
 }
 
+.show-as-link {
+    background: none !important;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    padding: 0 !important;
+    text-decoration: underline;
+}
+.button_to, .button_to div { display: inline; } 

@@ -2,22 +2,20 @@
   .aside.span-6{ :role => 'banner' }
     %h1
       %a{ :href => root_path, :title => "Associazione Miscela" }
-        %img{ :alt => "Logo Miscela", :src => "assets/MiscelaLogo.png" }
+        = image_tag("MiscelaLogo.png", alt: "Logo Miscela")
   .span-18.last
-    .span-6
-      .fb-like{ :"data-href" => "http://www.associazionemiscela.it", :"data-send" => "true", :"data-layout" => "button_count", :"data-width" => "250", :"data-show-faces" => "true" }
-      .feed
-        %a.icon.feed{ :rel => "nofollow", :href => "Feed.aspx", :title => "Miscela feed" }
-          Atom Feed
-    .span-12.last
-      #toolbar.reserved
-        %a{ :href => "#bella", :rel => "nofollow" }
-          Ferma la musica
-        -if signed_in?
-          %a{ :href => new_article_path, :rel => "nofollow" } Area riservata
-          =button_to 'Esci', signout_path, method: "delete"
-        -else
-          %a{ :href => signin_path, :rel => "nofollow" } Area riservata
+    .fb-like{ :"data-href" => "http://www.associazionemiscela.it", :"data-send" => "true", :"data-layout" => "button_count", :"data-width" => "250", :"data-show-faces" => "true" }
+    .feed
+      %a.icon.feed{ :rel => "nofollow", :href => "Feed.aspx", :title => "Miscela feed" }
+        Atom Feed
+    #toolbar.reserved
+      %a{ :href => "#bella", :rel => "nofollow" }
+        Ferma la musica
+      -if signed_in?
+        %a{ :href => new_article_path, :rel => "nofollow" } Area riservata
+        =button_to 'Esci', signout_path, method: "delete", class: "show-as-link"
+      -else
+        %a{ :href => signin_path, :rel => "nofollow" } Area riservata
     %ul.nav{ :role => 'navigation' }
       %li
         %a{ :href => articles_path }
