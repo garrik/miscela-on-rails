@@ -15,5 +15,5 @@
         %li
           =link_to 'Modifica', edit_article_path(article)
         %li
-          =button_to 'Cancella', article, :method => 'delete'
+          =button_to 'Cancella', article, :method => 'delete', :class => 'show-as-link'
       =render 'article'
