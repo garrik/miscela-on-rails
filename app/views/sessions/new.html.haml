@@ -1,0 +1,23 @@
+-content_for :page_title do
+  Entra nell'area di amministrazione
+-content_for :page_class do
+  signin
+.aside.span-6{ :role => 'complementary' }
+  =render '/layouts/follow_us'
+.main.span-18.last{ :role => 'main' }
+  .area.highlight
+    =render :partial => '/shared/stripes', :locals => { :label => 'Accesso' }
+  %h2
+    Area di amministrazione
+  =render '/layouts/feedbacks'
+  =form_for(:session, :url => sessions_path, :html => { :role => 'form' }) do |f|
+    %p
+      =f.label(:userid, 'Username')
+      =f.text_field :userid
+    %p
+      =f.label :password
+      =f.text_field :password
+    %p
+      =submit_tag 'Accedi'
+    %p
+      I campi contrassegnati dall'asterisco (*) sono obbligatori.    
