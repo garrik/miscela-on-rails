@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   end
   
   def show
-    @article = Article.find params[:id]    
+    @article = Article.find params[:id]
   end
 
   def create
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
     #Article.save
 
     
-    @article = Article.create(params[:article].merge(:author => 'placeholder'))
+    @article = Article.create(params[:article].merge(:author => current_user.userid))
     #@article = Article.new
     #@article.save
     if @article.errors.any?
@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find params[:id]
-    if @article.update_attributes params[:article].merge(:author => 'placeholder')
+    if @article.update_attributes params[:article].merge(:author => current_user.userid)
       if @article.errors.any?
         @errors= @article.errors
         #logger.debug @errors

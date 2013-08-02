@@ -1,4 +1,12 @@
 Miscela::Application.routes.draw do
+  get "static_pages/miscela"
+
+  get "static_pages/partners"
+
+  get "static_pages/credits"
+
+  get "static_pages/contacts"
+
   get "home/index"
 
   resources :sessions, :only => [ :new, :create, :destroy ]
@@ -18,7 +26,13 @@ Miscela::Application.routes.draw do
   # .net url backward compatibility
   get "/headlines.aspx" => "articles#headlines"
   get "/Feed.aspx" => "articles#rss_feeds"
-  #resources :articles
+  get "/contacts.htm" => "static_pages#contacts"
+  get "/partners.htm" => "static_pages#partners"
+  get "/where.htm" => "static_pages#miscela"
+  get "/credits.htm" => "static_pages#credits"
+
+  resources :miscela_subscriptions
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

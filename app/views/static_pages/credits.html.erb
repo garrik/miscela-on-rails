@@ -1,0 +1,15 @@
+<% content_for :page_class do %>credits<% end %>
+<div class="aside span-6" role="complementary">
+  <%= render '/layouts/follow_us' %>
+</div>
+<div class="main span-18 last" role="main">
+  <div class="area highlight">
+    <%= render :partial => '/shared/stripes', :locals => { :label => 'Ringraziamenti' } %>
+  </div>
+  <h2 class="hidden">Ringraziamenti</h2>
+    <p><strong>Grazie a:</strong></p>
+  <ul>
+    <li>Francesco Colletto per la grafica</li>
+    <li>Federico Perotto per aver costruito il sito</li>
+  </ul>
+</div>

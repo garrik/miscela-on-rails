@@ -1,0 +1,28 @@
+<% content_for :page_class do %>where<% end %>
+<div class="aside span-6" role="complementary">
+  <%= render '/layouts/follow_us' %>
+</div>
+<div class="main span-18 last" role="main">
+  <div class="area highlight">
+    <%= render :partial => '/shared/stripes', :locals => { :label => 'Dove' } %>
+  </div>
+  <h2>Dove siamo</h2>
+  <div>
+    <h3>Indirizzo</h3>
+    <p>Associazione culturale Miscela</p>
+    <p>Piazza Ruggia s.n.c. - c/o centro G.Rodari</p>
+    <p>10090 Romano Canavese - TO</p>
+      <iframe width="640" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.it/maps?f=q&amp;source=s_q&amp;hl=it&amp;geocode=&amp;q=romano+canavese+piazza+ruggia&amp;sll=41.442726,12.392578&amp;sspn=21.776746,31.904297&amp;ie=UTF8&amp;t=h&amp;ll=45.3917,7.867413&amp;spn=0.028932,0.054932&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.it/maps?f=q&amp;source=embed&amp;hl=it&amp;geocode=&amp;q=romano+canavese+piazza+ruggia&amp;sll=41.442726,12.392578&amp;sspn=21.776746,31.904297&amp;ie=UTF8&amp;t=h&amp;ll=45.3917,7.867413&amp;spn=0.028932,0.054932&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">Visualizzazione ingrandita della mappa</a></small>
+  </div>
+  <img src="img/where/ingresso.jpg" alt="Sede dell'associazione" title="Ingresso della sede" class="right"/>
+  <div>
+    <h3>Indicazioni</h3>
+    <ul>
+      <li>Uscita dall'autostrada A5 Torino-Aosta al casello di Scarmagno</li>
+      <li>Svolta a sinistra</li>
+      <li>Alla rotonda terza uscita verso Romano Canavese</li>
+      <li>In cima alla salita gira a destra verso il centro del paese</li>
+      <li>Sempre dritto fino in piazza e parcheggia</li>
+    </ul>
+  </div>
+</div>
