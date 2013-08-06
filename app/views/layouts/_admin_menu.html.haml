@@ -1,0 +1,14 @@
+.area
+  =render :partial => '/shared/stripes', :locals => { :label => 'Strumenti' }
+-if current_page?(subscriptions_path)
+  .headline
+    %a{ href: new_article_path }
+      .placeholder
+        %h4
+          Pubblicazione news
+-else
+  .headline
+    %a{ href: subscriptions_path }
+      .placeholder
+        %h4
+          Iscrizioni al miscela

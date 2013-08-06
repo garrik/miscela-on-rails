@@ -1,0 +1,13 @@
+.area
+  =render :partial => '/shared/stripes', :locals => { :label => 'Iscrizioni' }
+.headline
+  %a{ href: new_subscription_path }
+    .placeholder
+      %h4
+        Crea nuova
+-for subscription in @subscrs
+  .headline
+    %a{ href: edit_subscription_path(subscription) }
+      .placeholder
+        %h4=subscription.band_name
+

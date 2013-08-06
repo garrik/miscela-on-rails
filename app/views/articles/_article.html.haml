@@ -1,4 +1,7 @@
-%h3= @article.title
+-if alone
+  %h3= @article.title
+-else
+  %h3= link_to @article.title, article_path(@article)
 .meta
   Scritto da 
   %span.author= @article.author
@@ -7,3 +10,6 @@
   -if @article.draft
     Bozza
 %div= @article.content
+-if alone
+  .fb-comments{ :"data-href" => article_url(@article), :"data-num-posts" => "5", :"data-width" => "710" }
+  %div= link_to "Indietro", articles_path

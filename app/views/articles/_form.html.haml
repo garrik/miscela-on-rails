@@ -1,3 +1,10 @@
+-content_for :javascript_includes do
+  -#%script{ :src => "/lib/assets/markitup/jquery.markitup.js" }
+  -#%script{ :src => "/lib/assets/markitup/set.js" }
+  -#=stylesheet_link_tag "admin"
+  -#=javascript_include_tag "admin"
+  :javascript
+    $(function() { $('#markitup').markItUp(mySettings); });
 =render '/layouts/feedbacks'
 =form_for(@article, :html => { :role => 'form' }) do |f|
   -if @article.errors.any?
@@ -9,8 +16,8 @@
     =f.text_field :title
   %p
     =f.label :content
-    =f.text_field :content
+    =f.text_area :content, id: 'markitup'
   %p
     =submit_tag 'Invia'
   %p
-    I campi contrassegnati dall'asterisco (*) sono obbligatori.    
+    I campi contrassegnati dall'asterisco (*) sono obbligatori.

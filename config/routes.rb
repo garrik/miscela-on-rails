@@ -31,7 +31,7 @@ Miscela::Application.routes.draw do
   get "/where.htm" => "static_pages#miscela"
   get "/credits.htm" => "static_pages#credits"
 
-  resources :miscela_subscriptions
+  resources :subscriptions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

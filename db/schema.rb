@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505135209) do
+ActiveRecord::Schema.define(:version => 20130806205747) do
 
   create_table "articles", :force => true do |t|
     t.string   "author"
@@ -21,6 +21,23 @@ ActiveRecord::Schema.define(:version => 20130505135209) do
     t.string   "permalink"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.string   "event",        :null => false
+    t.string   "userid",       :null => false
+    t.string   "email",        :null => false
+    t.string   "name"
+    t.string   "band_name"
+    t.integer  "band_members"
+    t.string   "genre"
+    t.string   "city"
+    t.string   "notes"
+    t.string   "website"
+    t.string   "website2"
+    t.string   "video_link"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|

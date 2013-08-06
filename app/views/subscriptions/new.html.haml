@@ -1,12 +1,12 @@
 -content_for :page_title do
-  Pubblicazione articolo
+  Iscriviti al MRF
 -content_for :page_class do
-  news
+  subscription
 .aside.span-6{ :role => 'complementary' }
-  =render '/layouts/admin_menu'
+  =render 'subscriptions_menu'
 .main.span-18.last{ :role => 'main' }
   .area.highlight
-    =render :partial => '/shared/stripes', :locals => { :label => 'Pubblicazione' }
+    =render :partial => '/shared/stripes', :locals => { :label => 'Iscrizione' }
   %h2
-    Creazione articolo 
+    Iscriviti
   =render 'form'

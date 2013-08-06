@@ -10,4 +10,4 @@
   =render '/layouts/feedbacks'
   %h2.hidden=@article.title
   %div{ :id => "article_#{@article.id}", :class => "article" }
-    =render 'article'
+    =render partial: 'article', locals: { alone: true }

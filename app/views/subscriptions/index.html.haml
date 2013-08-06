@@ -1,0 +1,49 @@
+-content_for :page_title do
+  Iscrizioni al MRF
+-content_for :page_class do
+  subscriptions
+.aside.span-6{ :role => 'complementary' }
+  =render '/layouts/admin_menu'
+.main.span-18.last{ :role => 'main' }
+  .area.highlight
+    =render :partial => '/shared/stripes', :locals => { :label => 'Iscrizioni' }
+  %h2
+    Iscrizioni al Miscela Rock Festival
+  %table.subscriptions
+    %thead
+      %tr
+        %th
+          Nome
+        %th
+          Membri
+        %th
+          Genere
+        %th
+          Città
+        %th
+          Materiale
+        %th
+          Link
+        %th
+          Referenti
+    %tbody
+      -for subscription in @subscrs
+        %tr
+          %td
+            =subscription.band_name
+          %td
+            =subscription.band_members
+          %td
+            =subscription.genre
+          %td
+            =subscription.city
+          %td
+            Mat
+          %td
+            Lnk
+          %td
+            ref
+
+
+%a{ href: new_subscription_path }
+  new sub
