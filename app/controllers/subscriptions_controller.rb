@@ -40,9 +40,23 @@ class SubscriptionsController < ApplicationController
   end
 
   def update
+    @subscr = Subscription.find params[:id]
+    if @subscr.update_attributes params[:subscription]
+      if @subscr.errors.any?
+        @errors= @subscr.errors
+      end
+      redirect_to edit_subscription_path(@subscr.id), :notice => 'Iscrizione aggiornata'
+    else
+      redirect_to :back, :alert => 'Errore'
+    end
   end
 
   def delete
+  end
+
+  def destroy
+    Subscription.destroy params[:id]
+    redirect_to :back, :notice => 'Iscrizione cancellata'
   end
 
 end

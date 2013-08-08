@@ -1,6 +1,7 @@
 %p
   Compilando il form e inviando i dati dichiaro di aver letto il <a href="download/BANDO DI PARTECIPAZIONE MRF11.pdf" onclick="_gaq.push(['_trackPageview', '/downloads/bando_mrf11'])" target="_blank">bando di iscrizione</a> e autorizzo l'Associazione Miscela al trattamento dei dati personali. Tali dati non verranno resi pubblici ma verranno mantenuti solamente dagli organizzatori ai fini di archivio e selezione.
-=button_to 'Cancella', @subscr, :method => 'delete', :class => 'show-as-link'
+-if @subscr.id
+  =button_to 'Cancella', @subscr, :method => 'delete', :class => 'show-as-link'
 -#
   <script>
     $(function(){
@@ -54,6 +55,7 @@
     =f.text_area :notes
   %p
     =submit_tag 'Accetta e invia'
+  =render '/layouts/feedbacks'
   %p
     I campi contrassegnati dall'asterisco (*) sono obbligatori.
   %p
