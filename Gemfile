@@ -37,13 +37,14 @@ gem 'bcrypt-ruby', '~> 3.0.1'
 # gem 'ruby-debug'
 
 gem "haml"
+gem "paperclip", "~> 3.5.1"
 
 # Include to fix /usr/local/rvm/gems/ruby-1.8.7-p371/gems/execjs-1.4.0/lib/execjs/runtimes.rb:51:in `autodetect': Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
 # gem 'execjs'
 # gem 'therubyracer'
 
 group :production do
-  gem 'pg'
+  #gem 'pg'
 end
 
 group :test, :development do

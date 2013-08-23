@@ -16,7 +16,7 @@
     });
   </script>
 =render '/layouts/feedbacks'
-=form_for(@subscr, :html => { :role => 'form' }) do |f|
+=form_for(@subscr, :html => { :role => 'form', :multipart => true }) do |f|
   -if @subscr.errors.any?
     -@subscr.errors.full_messages.each do |msg|
       %div=msg
@@ -34,6 +34,12 @@
     =f.text_field :city
   %p
     Materiale per l'iscrizione
+  %p
+    =f.label(:photo, 'Foto (jpg/png)*')
+    =f.file_field :photo
+    -if @subscr.photo?
+      -#=image_tag @subscr.photo.url
+      =link_to 'Download', @subscr.photo.url
   %p
     Il documento può essere integrato, a discrezione dei partecipanti, con il seguente materiale facoltativo:
     %ul
