@@ -56,7 +56,7 @@ class SubscriptionsController < ApplicationController
 
   def destroy
     Subscription.destroy params[:id]
-    redirect_to :back, :notice => 'Iscrizione cancellata'
+    redirect_to new_subscription_path, :notice => 'Iscrizione cancellata'
   end
 
 end
