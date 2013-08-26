@@ -32,6 +32,14 @@ Miscela::Application.routes.draw do
   get "/credits.htm" => "static_pages#credits"
 
   resources :subscriptions
+  resources :subscriptions do
+    member do
+      get 'download_song1'
+      get 'download_song2'
+      get 'download_photo'
+      get 'download_attachment'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

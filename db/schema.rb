@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130823141510) do
+ActiveRecord::Schema.define(:version => 20130826124026) do
 
   create_table "articles", :force => true do |t|
     t.string   "author"
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(:version => 20130823141510) do
   end
 
   create_table "subscriptions", :force => true do |t|
-    t.string   "event",              :null => false
-    t.string   "userid",             :null => false
-    t.string   "email",              :null => false
+    t.string   "event",                   :null => false
+    t.string   "userid",                  :null => false
+    t.string   "email",                   :null => false
     t.string   "name"
     t.string   "band_name"
     t.integer  "band_members"
@@ -36,12 +36,24 @@ ActiveRecord::Schema.define(:version => 20130823141510) do
     t.string   "website"
     t.string   "website2"
     t.string   "video_link"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "song1_file_name"
+    t.string   "song1_content_type"
+    t.integer  "song1_file_size"
+    t.datetime "song1_updated_at"
+    t.string   "song2_file_name"
+    t.string   "song2_content_type"
+    t.integer  "song2_file_size"
+    t.datetime "song2_updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "users", :force => true do |t|

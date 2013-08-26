@@ -1,4 +1,5 @@
 class SubscriptionsController < ApplicationController
+  include SubscriptionsHelper
   #before_filter :user_is_owner, only: [ :create, :new, :edit, :update, :destroy ]
 
   @current_event = 'mrf12'
@@ -57,6 +58,23 @@ class SubscriptionsController < ApplicationController
   def destroy
     Subscription.destroy params[:id]
     redirect_to new_subscription_path, :notice => 'Iscrizione cancellata'
+  end
+
+  def download_song1
+    @subscr = Subscription.find params[:id]
+    download_file(@subscr.song1, nil)
+  end
+  def download_song2
+    @subscr = Subscription.find params[:id]
+    download_file(@subscr.song2, nil)
+  end
+  def download_photo
+    @subscr = Subscription.find params[:id]
+    download_file(@subscr.photo, nil)
+  end
+  def download_attachment
+    @subscr = Subscription.find params[:id]
+    download_file(@subscr.attachment, nil)
   end
 
 end
