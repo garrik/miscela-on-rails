@@ -6,6 +6,8 @@ class SubscriptionsController < ApplicationController
 
   def new
     @subscr = Subscription.new
+    @subscr.band_members.push BandMember.new
+    @subscr.band_members.push BandMember.new
     @subscrs = Subscription.find(:all, :order => "id desc")
   end
 

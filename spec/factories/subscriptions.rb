@@ -7,7 +7,7 @@ FactoryGirl.define do
     email "MyString"
     name "MyString"
     band_name "MyString"
-    band_members 1
+    band_members_number 1
     genre "MyString"
     city "MyString"
     notes "MyString"

@@ -1,13 +1,16 @@
 class Subscription < ActiveRecord::Base
-  #attr_accessible :band_members, :band_name, :city, :email, :event, :genre, :name, :notes, :userid, :video_link, :website, :website2
-  attr_accessible :band_members, :band_name, :city, :genre, :notes, :video_link, :website, :website2, :song1, :song2, :photo, :attachment
+  include SubscriptionsHelper
+  #attr_accessible :band_members_number, :band_name, :city, :email, :event, :genre, :name, :notes, :userid, :video_link, :website, :website2
+  attr_accessible :band_members_number, :band_name, :city, :genre, :notes, :video_link, :website, :website2, :song1, :song2, :photo, :attachment, :band_members_attributes
 
   has_attached_file :song1
   has_attached_file :song2
   has_attached_file :photo
   has_attached_file :attachment
 
-  validates :band_members, presence: true
+  before_validation :smart_add_protocol_to_urls
+
+  validates :band_members_number, presence: true
   validates :band_name, presence: true
   validates :city, presence: true
   validates :event, presence: true
@@ -22,4 +25,14 @@ class Subscription < ActiveRecord::Base
   validates :photo, presence: true
   validates :attachment, presence: true
 
+  has_many :band_members
+  accepts_nested_attributes_for :band_members
+
+  protected
+
+  def smart_add_protocol_to_urls
+    self.website = smart_add_url_protocol(self.website) unless self.website.empty?
+    self.website2 = smart_add_url_protocol(self.website2) unless self.website2.empty?
+    self.video_link = smart_add_url_protocol(self.video_link) unless self.video_link.empty?
+  end
 end

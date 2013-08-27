@@ -32,18 +32,38 @@
           %td
             =subscription.band_name
           %td
-            =subscription.band_members
+            =subscription.band_members_number
           %td
             =subscription.genre
           %td
             =subscription.city
           %td
-            Mat
+            =link_to 'Canzone 1', :controller => "subscriptions", :action => "download_song1", :id => subscription
+            %br
+            =link_to 'Canzone 2', :controller => "subscriptions", :action => "download_song2", :id => subscription
+            %br
+            =link_to 'Foto', :controller => "subscriptions", :action => "download_photo", :id => subscription
+            %br
+            =link_to 'Biografia', :controller => "subscriptions", :action => "download_attachment", :id => subscription
           %td
-            Lnk
+            =link_to 'Sito', subscription.website, target: '_blank'
+            -if !subscription.website2.empty?
+              %br
+              =link_to('Altro sito', subscription.website2, target: '_blank')
+            -if !subscription.video_link.empty?
+              %br
+              =link_to('Video', subscription.video_link, target: '_blank') 
           %td
-            ref
-
+            -subscription.band_members.each do |member|
+              %strong 
+                =member.name + ' ' + member.surname
+              %br
+              %a{ href: "mailto:#{member.email}" } 
+                =member.email
+              %br
+              %a{ href: "tel:#{member.phone}" } 
+                =member.phone
+              %br
 -# todo: remove link
 %a{ href: new_subscription_path }
   new sub

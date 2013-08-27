@@ -24,8 +24,8 @@
     =f.label(:band_name, 'Nome della Band/Artista*')
     =f.text_field :band_name
   %p
-    =f.label(:band_members, 'Numero di componenti in live*')
-    =f.text_field :band_members
+    =f.label(:band_members_number, 'Numero di componenti in live*')
+    =f.text_field :band_members_number
   %p
     =f.label(:genre, 'Genere*')
     =f.text_field :genre
@@ -71,6 +71,25 @@
   %p
     =f.label(:video_link, 'Link a contenuti video')
     =f.text_field :video_link
+  -@subscr.band_members.each.with_index do |member, index|
+    %p
+      -if index = 0
+        Referente principale
+      -else
+        Referente secondario
+    =f.fields_for :band_members, member do |band_member_fields|
+      %p
+        =band_member_fields.label(:name, 'Nome*')
+        =band_member_fields.text_field :name
+      %p
+        =band_member_fields.label(:surname, 'Cognome*')
+        =band_member_fields.text_field :surname
+      %p
+        =band_member_fields.label(:email, 'Email*')
+        =band_member_fields.text_field :email
+      %p
+        =band_member_fields.label(:phone, 'Numero di telefono*')
+        =band_member_fields.text_field :phone
   %p
     =f.label(:notes, 'Comunicazioni per lo staff')
     =f.text_area :notes

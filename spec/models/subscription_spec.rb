@@ -12,7 +12,7 @@ describe Subscription do
   it { should respond_to(:email) }
   it { should respond_to(:userid) }
   it { should respond_to(:band_name) }
-  it { should respond_to(:band_members) }
+  it { should respond_to(:band_members_number) }
   it { should respond_to(:genre) }
   it { should respond_to(:city) }
   it { should respond_to(:notes) }
