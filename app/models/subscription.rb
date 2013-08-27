@@ -25,7 +25,7 @@ class Subscription < ActiveRecord::Base
   validates :photo, presence: true
   validates :attachment, presence: true
 
-  has_many :band_members
+  has_many :band_members, dependent: :destroy
   accepts_nested_attributes_for :band_members
 
   protected
