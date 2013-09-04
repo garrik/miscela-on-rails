@@ -1,0 +1,12 @@
+# Private settings for miscela app
+defaults: &defaults
+  janrain_api_key: your_api_key_value
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

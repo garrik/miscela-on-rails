@@ -1,7 +1,9 @@
+-if janrain_signed_in?
+  =button_to 'Esci dalle iscrizioni', openid_signout_path, method: "delete", class: "show-as-link"
 %p
   Compilando il form e inviando i dati dichiaro di aver letto il <a href="download/BANDO DI PARTECIPAZIONE MRF11.pdf" onclick="_gaq.push(['_trackPageview', '/downloads/bando_mrf11'])" target="_blank">bando di iscrizione</a> e autorizzo l'Associazione Miscela al trattamento dei dati personali. Tali dati non verranno resi pubblici ma verranno mantenuti solamente dagli organizzatori ai fini di archivio e selezione.
 -if @subscr.id
-  =button_to 'Cancella', @subscr, :method => 'delete', :class => 'show-as-link'
+  =button_to "Cancella l'iscrizione", @subscr, :method => 'delete', :class => 'show-as-link'
 -#
   <script>
     $(function(){
@@ -16,7 +18,7 @@
     });
   </script>
 =render '/layouts/feedbacks'
-=form_for(@subscr, :html => { :role => 'form', :multipart => true }) do |f|
+=form_for(@subscr, :html => { role: 'form', multipart: true, class: 'edit_subscription' }) do |f|
   -if @subscr.errors.any?
     -@subscr.errors.full_messages.each do |msg|
       %div=msg

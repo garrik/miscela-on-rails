@@ -1,0 +1,46 @@
+-content_for :page_title do
+  Autenticazione per l'accesso all'iscrizione online
+-content_for :page_class do
+  subscriptions_auth
+.aside.span-6{ :role => 'complementary' }
+  =render '/layouts/admin_menu'
+.main.span-18.last{ :role => 'main' }
+  .area.highlight
+    =render :partial => '/shared/stripes', :locals => { :label => 'MRF' }
+  %h2
+    Accedi per iscriverti al Miscela Rock Festival
+  %p
+    Per effettuare l'iscrizione in qualità di artista, alla undicesima edizione (MRF11), occorre effettuare il login su uno dei canali a scelta tra quelli sotto indicati al fine di verificare le credenziali del sottoscrivente.
+  %p
+    Se possiedi già un account su uno dei seguenti siti/social seleziona direttamente con un click il logo corrispondente per accedere con le tue credenziali (login e password)  e proseguire con l'iscrizione. In caso contrario non sarà possibile effettuare l’ iscrizione on-line.
+  %p
+    Ricordati di accedere sempre con lo stesso account con cui hai effettuato l'iscrizione per visualizzare e modificare i tuoi dati se necessario.
+  #janrainEngageEmbed
+  :javascript
+    (function() {
+      if (typeof window.janrain !== 'object') window.janrain = {};
+      window.janrain.settings = {};
+
+      janrain.settings.tokenUrl = '#{application_url}/openid_session_create';
+      janrain.settings.language = 'it';
+
+      function isReady() { janrain.ready = true; };
+      if (document.addEventListener) {
+      document.addEventListener("DOMContentLoaded", isReady, false);
+      } else {
+      window.attachEvent('onload', isReady);
+      }
+
+      var e = document.createElement('script');
+      e.type = 'text/javascript';
+      e.id = 'janrainAuthWidget';
+
+      if (document.location.protocol === 'https:') {
+      e.src = 'https://rpxnow.com/js/lib/miscela/engage.js';
+      } else {
+      e.src = 'http://widget-cdn.rpxnow.com/js/lib/miscela/engage.js';
+      }
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(e, s);
+    })();

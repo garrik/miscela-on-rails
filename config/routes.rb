@@ -40,6 +40,9 @@ Miscela::Application.routes.draw do
       get 'download_attachment'
     end
   end
+  match '/openid_signin', :to => 'subscriptions#janrain_session_new'
+  match '/openid_session_create', :to => 'subscriptions#janrain_session_create'
+  match '/openid_signout', :to => 'subscriptions#janrain_session_destroy', :via => :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

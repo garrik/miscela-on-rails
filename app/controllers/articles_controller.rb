@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  include ArticlesHelper
   before_filter :signed_in_user, only: [ :create, :new, :edit, :preview, :update, :destroy ]
   
   def index
@@ -29,11 +30,6 @@ class ArticlesController < ApplicationController
   def create
     #render :text => params.inspect
     
-    #do it manually
-    #Article.new
-    #Article.save
-
-    
     @article = Article.create(params[:article].merge(:author => current_user.userid))
     #@article = Article.new
     #@article.save
@@ -50,7 +46,6 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    #@errors ={ :eccomi => 'eccomi new' }
   end
 
   def edit
@@ -81,10 +76,5 @@ class ArticlesController < ApplicationController
   def destroy
     Article.destroy params[:id]
     redirect_to :back, :notice => 'Articolo cancellato'
-  end
-
-  private
-  def signed_in_user
-    redirect_to signin_path, notice: "Perfavore eseguire l'accesso al sito con username e password" unless signed_in?
   end
 end

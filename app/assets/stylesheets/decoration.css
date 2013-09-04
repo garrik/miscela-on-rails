@@ -14,6 +14,22 @@ a, a:link, a:hover, a:visited, a:active { color: #000; }
 .main a:hover { color: #da0019; }
 .main a:active { color: #fc0019; }
 
+.show-as-link {
+    background: none !important;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    padding: 0 !important;
+    text-decoration: underline;
+}
+.main .show-as-link { color: #da0019; }
+.main .show-as-link:link { color: #da0019; }
+.main .show-as-link:visited { color: #a50019; }
+.main .show-as-link:hover { color: #da0019; }
+.main .show-as-link:active { color: #fc0019; }
+
 .highlight { background-color: transparent; }
 .header .nav {
     border-bottom: 2px solid black;
@@ -21,7 +37,8 @@ a, a:link, a:hover, a:visited, a:active { color: #000; }
 }
 .home .header .nav { padding-top: 4em; }
 .header .nav li {
-    background: url("../img/slash.png") no-repeat -5px 0;
+    /* Thanks to http://stackoverflow.com/questions/6213218/rails-3-1-and-image-assets */
+    background: url("/assets/slash.png") no-repeat -5px 0;
     font-size: 120%;
     margin-left: 1%;
     text-transform: uppercase;
@@ -93,7 +110,7 @@ div.footer { background-color: Black; }
 /* 3 stripes decoration effect uses borders */
 .striped {
     position: relative;
-    width: 161px; 
+    width: 161px;
 }
 .admin .striped, .community .striped { width: 200px; }
 .area .striped { background-color: #bec0c2; }
@@ -147,13 +164,8 @@ div.footer { background-color: Black; }
 	width: 14px;
 }
 
-.show-as-link {
-    background: none !important;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 12px;
-    padding: 0 !important;
-    text-decoration: underline;
+.button_to, .button_to div { display: inline; }
+.subscription .button_to, .subscription .button_to div { 
+    display: block; 
+    text-align: right;
 }
-.button_to, .button_to div { display: inline; } 
