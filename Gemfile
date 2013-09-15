@@ -47,7 +47,7 @@ gem "httparty"
 # gem 'therubyracer'
 
 group :production do
-  #gem 'pg'
+  gem 'pg'
 end
 
 group :test, :development do
