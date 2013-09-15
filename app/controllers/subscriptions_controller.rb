@@ -42,6 +42,8 @@ class SubscriptionsController < ApplicationController
     @subscr.save
 
     if @subscr.persisted?
+      SubscriptionMailer.welcome_email(@subscr.band_members[0], @subscr).deliver
+      SubscriptionMailer.welcome_email(@subscr.band_members[1], @subscr).deliver
       redirect_to edit_subscription_path(@subscr.id), :notice => 'Ti sei iscritto al Miscela Rock Festival'
     else
       render 'edit'
