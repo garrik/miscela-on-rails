@@ -7,8 +7,6 @@ class SubscriptionsController < ApplicationController
   before_filter :janrain_signed_in_user, only: [ :create, :new ]
   before_filter :janrain_user_is_owner, only: [ :edit, :update, :delete, :destroy ]
 
-  @current_event = 'mrf12'
-
   # crud
   def new
     @subscr = Subscription.new
@@ -35,7 +33,7 @@ class SubscriptionsController < ApplicationController
     @subscrs = Subscription.find(:all, :order => "id desc")
 
     @subscr = Subscription.new(params[:subscription])
-    @subscr.event = '@current_event'
+    @subscr.event = Rails.configuration.event_code
     @subscr.name = session[:janrain_name]
     @subscr.userid = session[:janrain_userid]
     @subscr.email = session[:janrain_email]
