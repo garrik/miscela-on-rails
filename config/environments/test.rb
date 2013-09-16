@@ -34,4 +34,16 @@ Miscela::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # Email settings
+  config.action_mailer.default_url_options = { host: 'www.associazionemiscela.it' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    #:domain               => 'qualcosa.net',
+    :user_name            => ENV['smtp_user'],
+    :password             => ENV['smtp_password'],
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  }
 end
