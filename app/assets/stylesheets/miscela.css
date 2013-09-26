@@ -56,7 +56,7 @@
     width: 100%;
 }
 .home .wait {
-    background: url('/img/ajax-loader.gif') no-repeat 50% 100%;
+    background: url('/assets/ajax-loader.gif') no-repeat 50% 100%;
     padding-bottom: 2em;
     text-align: center;
 }
@@ -277,9 +277,9 @@ div.footer {
     margin: 0.5em 0;
     padding-left: 3em;
 }
-.social-networks .facebook { background: url('/img/Facebook.png') no-repeat; }
-.social-networks .myspace { background: url('/img/Myspace.png') no-repeat; }
-.social-networks .twitter { background: url('/img/Twitter.png') no-repeat; }
+.social-networks .facebook { background: url('/assets/Facebook.png') no-repeat; }
+.social-networks .myspace { background: url('/assets/MySpace.png') no-repeat; }
+.social-networks .twitter { background: url('/assets/Twitter.png') no-repeat; }
 .email { white-space: nowrap; }
 
 /* scroll headline */
