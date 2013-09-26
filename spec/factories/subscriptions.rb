@@ -14,5 +14,9 @@ FactoryGirl.define do
     website "MyString"
     website2 "MyString"
     video_link "MyString"
+    photo { fixture_file_upload(Rails.root.join('spec', 'files', 'roma.jpg'), 'image/png') }
+    song1 { fixture_file_upload(Rails.root.join('spec', 'files', 'roma.jpg'), 'image/png') }
+    song2 { fixture_file_upload(Rails.root.join('spec', 'files', 'roma.jpg'), 'image/png') }
+    attachment { fixture_file_upload(Rails.root.join('spec', 'files', 'roma.jpg'), 'image/png') }
   end
 end
