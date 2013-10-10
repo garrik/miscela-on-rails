@@ -24,6 +24,7 @@ class Subscription < ActiveRecord::Base
   validates :song2, presence: true
   validates :photo, presence: true
   validates :attachment, presence: true
+  validates :notes, length: { :in => 0..1000 }
 
   has_many :band_members, dependent: :destroy
   accepts_nested_attributes_for :band_members

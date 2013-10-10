@@ -4,11 +4,11 @@ class ArticlesController < ApplicationController
   
   def index
     @article = Article.new
-    @articles = Article.find(:all, :order => "id desc", :limit => 10)
+    @articles = Article.paginate(page: params[:page], per_page: 10).order("created_at desc")
   end
 
   def headlines
-    @articles = Article.find(:all, :order => "id desc", :limit => 5)
+    @articles = Article.find(:all, order: "created_at desc", limit: 5)
     @headlines_container = { :headlines => Array.new }
     @articles.each do |article|
       @headlines_container[:headlines].push({ :id => article.id, :url => article_path(article.id), :title => article.title, :content => article.content })
@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
     end
   end
   def rss_feeds
-    @articles = Article.find(:all, :order => "id desc", :limit => 10)
+    @articles = Article.find(:all, order: "created_at desc", limit: 10)
     render :partial => "articles/rss_feeds.xml"  
   end
   

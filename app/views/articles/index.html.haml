@@ -17,3 +17,4 @@
         %li
           =button_to 'Cancella', article, :method => 'delete', :class => 'show-as-link'
       =render partial: 'article', locals: { alone: false }
+  =will_paginate @articles

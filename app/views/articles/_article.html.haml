@@ -9,7 +9,7 @@
   %span.date= l @article.created_at, :format => :long
   -if @article.draft
     Bozza
-%div= @article.content
+%div= @article.content.html_safe
 -if alone
   .fb-comments{ :"data-href" => article_url(@article), :"data-num-posts" => "5", :"data-width" => "710" }
   %div= link_to "Indietro", articles_path

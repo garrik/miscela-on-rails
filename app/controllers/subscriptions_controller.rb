@@ -73,12 +73,9 @@ class SubscriptionsController < ApplicationController
 
   def janrain_session_create
 
-    logger.debug "janrain_signed_in? #{janrain_signed_in?}"
     if janrain_signed_in?
       redirect_to new_subscription_path, notice: "Utente gia' autenticato"
     else
-      #render text: "HTTParty started"
-      logger.debug "HTTParty started"
       # Thanks to http://blog.teamtreehouse.com/its-time-to-httparty
       authentication = HTTParty.post(Rails.configuration.janrain_auth_url,
         :query => { apiKey: Rails.configuration.janrain_api_key, 
@@ -86,10 +83,8 @@ class SubscriptionsController < ApplicationController
           destinationUrl: new_subscription_path,
           token: params[:token] })
       if authentication["stat"] == "ok"
-        logger.debug "auth ok"
         janrain_sign_in authentication
       else
-        logger.debug "auth ko"
         redirect_to openid_signin_path, notice: "Errore di autenticazione dell'utente. Riprova, se l'errore persiste provare con un account differente."
       end
       redirect_to new_subscription_path

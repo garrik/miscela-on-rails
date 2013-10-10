@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130829150747) do
+ActiveRecord::Schema.define(:version => 20130930171245) do
 
   create_table "articles", :force => true do |t|
     t.string   "author"
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.boolean  "draft",      :default => true
     t.string   "permalink"
     t.datetime "created_at",                   :null => false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130829150747) do
     t.integer  "band_members_number"
     t.string   "genre"
     t.string   "city"
-    t.string   "notes"
+    t.text     "notes"
     t.string   "website"
     t.string   "website2"
     t.string   "video_link"
