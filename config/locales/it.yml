@@ -203,3 +203,7 @@ it:
   activerecord:
     errors:
       <<: *errors
+  will_paginate:
+    previous_label: "&#8592; Piú recenti"
+    next_label: "Piú vecchi &#8594;"
+    page_gap: "&hellip;"

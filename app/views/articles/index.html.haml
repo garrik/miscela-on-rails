@@ -11,10 +11,11 @@
   -for article in @articles
     -@article = article
     %div{ :id => "article_#{article.id}", :class => "article" }
-      %ul.tools
-        %li
-          =link_to 'Modifica', edit_article_path(article)
-        %li
-          =button_to 'Cancella', article, :method => 'delete', :class => 'show-as-link'
+      -if signed_in?
+        %ul.tools
+          %li
+            =link_to 'Modifica', edit_article_path(article)
+          %li
+            =button_to 'Cancella', article, :method => 'delete', :class => 'show-as-link'
       =render partial: 'article', locals: { alone: false }
   =will_paginate @articles
