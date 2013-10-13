@@ -49,6 +49,7 @@ gem 'will_paginate', '~> 3.0'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :test, :development do
@@ -72,3 +73,6 @@ end
 #group :development do
 #  gem 'win32console'
 #end
+
+# force heroku to use the same ruby version
+ruby '1.9.3'

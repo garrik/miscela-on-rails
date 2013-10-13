@@ -21,7 +21,7 @@
       if (typeof window.janrain !== 'object') window.janrain = {};
       window.janrain.settings = {};
 
-      janrain.settings.tokenUrl = '#{application_url}/openid_session_create';
+      janrain.settings.tokenUrl = document.location.href.replace(/openid_signin/, '') + 'openid_session_create';
       janrain.settings.language = 'it';
 
       function isReady() { janrain.ready = true; };
