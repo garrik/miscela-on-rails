@@ -56,13 +56,14 @@ describe "Authentication" do
           it { has_title? "Entra nell'area di amministrazione" }
         end
 
-        describe "submitting to the update action" do
-          let(:article) { FactoryGirl.create(:article) }
+        # see http://www.andylindeman.com/2012/11/11/rspec-rails-and-capybara-2.0-what-you-need-to-know.html
+        # must be moved to spec/requests
+        #describe "submitting to the update action" do
+          #let(:article) { FactoryGirl.create(:article) }
 
-          # put doesn't exist: see http://www.ruby-forum.com/topic/2407309
-          before { put article_path(article) }
-          specify { response.should redirect_to(signin_path) }
-        end
+          #before { put article_path(article) }
+          #specify { response.should redirect_to(signin_path) }
+        #end
       end
     end
   end

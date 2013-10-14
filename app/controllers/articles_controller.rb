@@ -13,14 +13,13 @@ class ArticlesController < ApplicationController
     @articles.each do |article|
       @headlines_container[:headlines].push({ :id => article.id, :url => article_path(article.id), :title => article.title, :content => article.content })
     end
-    respond_to do |format|
-      #format.html 
-      format.json { render :partial => "articles/headlines.json" }
-    end
+    render "headlines", :formats => [:json], :layout => false
+    #render :partial => "articles/headlines", :formats => [:json]
   end
   def rss_feeds
     @articles = Article.find(:all, order: "created_at desc", limit: 10)
-    render :partial => "articles/rss_feeds.xml"  
+    render "rss_feeds", :formats => [:xml], :layout => false
+    #render :partial => "articles/rss_feeds", :formats => [:xml]
   end
   
   def show
