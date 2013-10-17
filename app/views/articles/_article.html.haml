@@ -6,7 +6,7 @@
   Scritto da 
   %span.author= @article.author
   il 
-  %span.date= l @article.created_at, :format => :long
+  %span.date= l @article.created_at, :format => :extra
   -if @article.draft
     Bozza
 %div= @article.content.html_safe

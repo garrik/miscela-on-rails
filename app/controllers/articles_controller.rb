@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  include ActionView::Helpers::TextHelper
   include ArticlesHelper
   before_filter :signed_in_user, only: [ :create, :new, :edit, :preview, :update, :destroy ]
   
@@ -11,7 +12,11 @@ class ArticlesController < ApplicationController
     @articles = Article.find(:all, order: "created_at desc", limit: 5)
     @headlines_container = { :headlines => Array.new }
     @articles.each do |article|
-      @headlines_container[:headlines].push({ :id => article.id, :url => article_path(article.id), :title => article.title, :content => article.content })
+      @headlines_container[:headlines].push({ 
+        :id => article.id, 
+        :url => article_path(article.id), 
+        :title => article.title, 
+        :content => strip_tags(article.content.truncate(140)) })
     end
     render "headlines", :formats => [:json], :layout => false
     #render :partial => "articles/headlines", :formats => [:json]

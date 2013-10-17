@@ -16,7 +16,7 @@
     -#    =link_to 'Modifica', edit_article_path(@article)
     -#  %li
     -#    =button_to 'Cancella', @article, :method => 'delete'
-    =render 'article'
+    =render partial: 'article', locals: { alone: true }
   =form_for(@article, :html => { :role => 'form' }) do |f|
     =f.hidden_field(:draft, :value => 'false')
     %p
