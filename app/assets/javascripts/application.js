@@ -12,3 +12,4 @@
 //
 //= require miscela.js
 //= require underscore.js
+//= require tinymce/js/tinymce/tinymce.min.js

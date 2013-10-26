@@ -10,6 +10,6 @@
   -if @article.draft
     Bozza
 %div= @article.content.html_safe
--if alone
+-if alone && params["action"] != "preview"
   .fb-comments{ :"data-href" => article_url(@article), :"data-num-posts" => "5", :"data-width" => "710" }
   %div= link_to "Indietro", articles_path
