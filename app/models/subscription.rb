@@ -3,10 +3,10 @@ class Subscription < ActiveRecord::Base
   #attr_accessible :band_members_number, :band_name, :city, :email, :event, :genre, :name, :notes, :userid, :video_link, :website, :website2
   attr_accessible :band_members_number, :band_name, :city, :genre, :notes, :video_link, :website, :website2, :song1, :song2, :photo, :attachment, :band_members_attributes
 
-  has_attached_file :song1
-  has_attached_file :song2
-  has_attached_file :photo
-  has_attached_file :attachment
+  has_attached_file :song1, :storage => :dropbox, :dropbox_credentials => Rails.configuration.dropbox
+  has_attached_file :song2, :storage => :dropbox, :dropbox_credentials => Rails.configuration.dropbox
+  has_attached_file :photo, :storage => :dropbox, :dropbox_credentials => Rails.configuration.dropbox
+  has_attached_file :attachment, :storage => :dropbox, :dropbox_credentials => Rails.configuration.dropbox
 
   before_validation :smart_add_protocol_to_urls
 
@@ -36,4 +36,5 @@ class Subscription < ActiveRecord::Base
     self.website2 = smart_add_url_protocol(self.website2) unless self.website2.empty?
     self.video_link = smart_add_url_protocol(self.video_link) unless self.video_link.empty?
   end
+
 end

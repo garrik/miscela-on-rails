@@ -39,6 +39,7 @@ gem 'bcrypt-ruby', '~> 3.0.1'
 gem "haml"
 # simpler file upload
 gem "paperclip", "~> 3.5.1"
+gem "paperclip-dropbox", ">= 1.1.7"
 # call 3rd party api
 gem "httparty"
 gem 'will_paginate', '~> 3.0'

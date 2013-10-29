@@ -38,13 +38,13 @@
           %td
             =subscription.city
           %td
-            =link_to 'Canzone 1', :controller => "subscriptions", :action => "download_song1", :id => subscription
+            =link_to 'Canzone 1', subscription.song1.url(download: true)
             %br
-            =link_to 'Canzone 2', :controller => "subscriptions", :action => "download_song2", :id => subscription
+            =link_to 'Canzone 2', subscription.song2.url(download: true)
             %br
-            =link_to 'Foto', :controller => "subscriptions", :action => "download_photo", :id => subscription
+            =link_to 'Foto', subscription.photo.url(download: true)
             %br
-            =link_to 'Biografia', :controller => "subscriptions", :action => "download_attachment", :id => subscription
+            =link_to 'Biografia', subscription.attachment.url(download: true)
           %td
             =link_to 'Sito', subscription.website, target: '_blank'
             -if !subscription.website2.empty?

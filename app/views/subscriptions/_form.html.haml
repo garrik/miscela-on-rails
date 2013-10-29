@@ -40,23 +40,22 @@
     =f.label(:song1, 'Canzone 1 (mp3)*')
     =f.file_field :song1
     -if @subscr.song1?
-      =link_to 'Download', 'download_song1'
+      =link_to 'Download', @subscr.song1.url(download: true)
   %p
     =f.label(:song2, 'Canzone 2 (mp3)*')
     =f.file_field :song2
     -if @subscr.song2?
-      =link_to 'Download', 'download_song2'
+      =link_to 'Download', @subscr.song2.url(download: true)
   %p
     =f.label(:photo, 'Foto (jpg/png)*')
     =f.file_field :photo
     -if @subscr.photo?
-      -#=image_tag @subscr.photo.url
-      =link_to 'Download', 'download_photo'
+      =link_to 'Download', @subscr.photo.url(download: true)
   %p
     =f.label(:attachment, 'Biografia con scheda tecnica e stage plan (pdf)*')
     =f.file_field :attachment
     -if @subscr.attachment?
-      =link_to 'Download', 'download_attachment'
+      =link_to 'Download', @subscr.attachment.url(download: true)
   %p
     Il documento può essere integrato, a discrezione dei partecipanti, con il seguente materiale facoltativo:
     %ul
